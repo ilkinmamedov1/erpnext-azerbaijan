@@ -22,30 +22,6 @@ def run():
     frappe.db.commit()
     print("   Company tax_id updated to 1300000001 (VÖEN) and asset accounts linked.")
 
-    print(">>> 2. Configuring Bank and Bank Account...")
-    bank_name = os.environ.get("BANK_NAME", "Bank Hesabı")
-    if not frappe.db.exists("Bank", bank_name):
-        bank = frappe.get_doc({
-            "doctype": "Bank",
-            "bank_name": bank_name,
-            "swift_number": os.environ.get("BANK_SWIFT", "")
-        }).insert(ignore_permissions=True)
-    
-    bank_account_name = f"{company_name} - Əsas Bank Hesabı"
-    if not frappe.db.exists("Bank Account", bank_account_name):
-        frappe.get_doc({
-            "doctype": "Bank Account",
-            "account_name": bank_account_name,
-            "bank": bank_name,
-            "account": f"223.01 - Bank hesabı - AZN (Əsas bank) - {abbr}",
-            "company": company_name,
-            "is_company_account": 1,
-            "is_default": 1,
-            "iban": os.environ.get("BANK_IBAN", "")
-        }).insert(ignore_permissions=True)
-    frappe.db.commit()
-    print("   Bank and Bank Account created and linked to 223.01.")
-
     print(">>> 3. Configuring Tax Templates (ƏDV 18%, 0%, Əvəzləşdirilən)...")
     # Clean up old broken templates if any
     if frappe.db.exists("Sales Taxes and Charges Template", f"Azerbaijan Tax - {abbr}"):
@@ -316,17 +292,20 @@ def run():
         </div>
     </div>
 
-    <!-- BANK REKVİZİTLƏRİ VƏ ALICI -->
+    <!-- SATICI VƏ ALICI TƏŞKİLATLAR -->
     <div style="display: flex; justify-content: space-between; margin-bottom: 20px; gap: 20px;">
         <div style="flex: 1; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px;">
-            <div style="font-weight: 700; color: #0f766e; border-bottom: 1px solid #cbd5e1; padding-bottom: 4px; margin-bottom: 8px; font-size: 12px; text-transform: uppercase;">Bank Rekvizitləri</div>
+            <div style="font-weight: 700; color: #0f766e; border-bottom: 1px solid #cbd5e1; padding-bottom: 4px; margin-bottom: 8px; font-size: 12px; text-transform: uppercase;">Satıcı Təşkilat</div>
             <div style="font-size: 12px; line-height: 1.6;">
+                <div><strong>Təşkilat:</strong> {{ doc.company }}</div>
+                <div><strong>VÖEN:</strong> {{ frappe.db.get_value("Company", doc.company, "tax_id") or "—" }}</div>
                 {% set ba = frappe.db.get_value("Bank Account", {"company": doc.company, "is_default": 1}, ["bank", "iban"], as_dict=True) %}
-                <div><strong>Bank:</strong> {{ ba.bank if ba and ba.bank else "Bank Hesabı" }}</div>
+                {% if ba and ba.bank %}
+                <div><strong>Bank:</strong> {{ ba.bank }}</div>
+                {% endif %}
                 {% if ba and ba.iban %}
                 <div><strong>İBAN:</strong> {{ ba.iban }}</div>
                 {% endif %}
-                <div><strong>Hesablaşma hesabı:</strong> 223.01</div>
             </div>
         </div>
         <div style="flex: 1; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px;">

@@ -9,8 +9,7 @@ Automates:
 5. Tax templates (ƏDV 18%, 0%, Azad, Əvəzləşdirilən)
 6. Warehouses (Bütün Anbarlar, Əsas Anbar, Hazır Məhsul, Xammal, Bitməmiş İstehsalat, Tranzit)
 7. Modes of Payment (Nağd, Bank köçürməsi, POS-Terminal, ƏDV Depozit)
-8. Bank and Bank Account (Configurable from .env or defaults)
-9. Units of Measure (Ədəd, Qutu, Dəst, Paçka, Rulon, Qram, Ton)
+8. Units of Measure (Ədəd, Qutu, Dəst, Paçka, Rulon, Qram, Ton)
 10. Property Setters (VÖEN label & Naming Series SQ-, AQ-, SS-, AS-, TQ-, MQ-, ÖD-, MƏ-)
 11. Central Bank (CBAR) reference exchange rates
 12. Official Azerbaijani "Hesab-Faktura (Azərbaycan)" Print Format
@@ -29,9 +28,6 @@ def run():
     company_name = os.environ.get("COMPANY_NAME", "TEST MMC")
     company_abbr = os.environ.get("COMPANY_ABBR", "TM")
     company_tax_id = os.environ.get("COMPANY_TAX_ID", "1300000001")
-    bank_name = os.environ.get("BANK_NAME", "Bank Hesabı") or "Bank Hesabı"
-    bank_swift = os.environ.get("BANK_SWIFT", "") or ""
-    bank_iban = os.environ.get("BANK_IBAN", "") or ""
     
     # Locate CSV file
     csv_candidates = [
@@ -320,31 +316,6 @@ def run():
     frappe.db.commit()
     print(f"   Company VÖEN set to {company_tax_id} and Asset accounts mapped.")
 
-    # 5. Configure Bank & Bank Account
-    print("\n>>> 5. Configuring Bank and Bank Account...")
-    if not frappe.db.exists("Bank", bank_name):
-        frappe.get_doc({
-            "doctype": "Bank",
-            "bank_name": bank_name,
-            "swift_number": bank_swift
-        }).insert(ignore_permissions=True)
-    
-    bank_account_title = f"{bank_name} Əsas Hesab"
-    existing_ba = frappe.db.get_value("Bank Account", {"company": company_name, "bank": bank_name}, "name")
-    if not existing_ba:
-        frappe.get_doc({
-            "doctype": "Bank Account",
-            "account_name": bank_account_title,
-            "bank": bank_name,
-            "account": f"223.01 - Bank hesabı - AZN (Əsas bank) - {abbr}",
-            "company": company_name,
-            "is_company_account": 1,
-            "is_default": 1,
-            "iban": bank_iban
-        }).insert(ignore_permissions=True)
-    frappe.db.commit()
-    print(f"   Bank {bank_name} and IBAN {bank_iban} linked to 223.01.")
-
     # 6. Configure Tax Templates (ƏDV 18%, 0%, Əvəzləşdirilən)
     print("\n>>> 6. Configuring Azerbaijani Tax Templates...")
     # Sales Tax: ƏDV 18%
@@ -621,14 +592,17 @@ def run():
     <!-- BANK REKVİZİTLƏRİ VƏ ALICI -->
     <div style="display: flex; justify-content: space-between; margin-bottom: 20px; gap: 20px;">
         <div style="flex: 1; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px;">
-            <div style="font-weight: 700; color: #0f766e; border-bottom: 1px solid #cbd5e1; padding-bottom: 4px; margin-bottom: 8px; font-size: 12px; text-transform: uppercase;">Bank Rekvizitləri</div>
+            <div style="font-weight: 700; color: #0f766e; border-bottom: 1px solid #cbd5e1; padding-bottom: 4px; margin-bottom: 8px; font-size: 12px; text-transform: uppercase;">Satıcı Təşkilat</div>
             <div style="font-size: 12px; line-height: 1.6;">
+                <div><strong>Təşkilat:</strong> {{ doc.company }}</div>
+                <div><strong>VÖEN:</strong> {{ frappe.db.get_value("Company", doc.company, "tax_id") or "—" }}</div>
                 {% set ba = frappe.db.get_value("Bank Account", {"company": doc.company, "is_default": 1}, ["bank", "iban"], as_dict=True) %}
-                <div><strong>Bank:</strong> {{ ba.bank if ba and ba.bank else "Bank Hesabı" }}</div>
+                {% if ba and ba.bank %}
+                <div><strong>Bank:</strong> {{ ba.bank }}</div>
+                {% endif %}
                 {% if ba and ba.iban %}
                 <div><strong>İBAN:</strong> {{ ba.iban }}</div>
                 {% endif %}
-                <div><strong>Hesablaşma hesabı:</strong> 223.01</div>
             </div>
         </div>
         <div style="flex: 1; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px;">

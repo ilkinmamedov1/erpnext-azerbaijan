@@ -46,9 +46,7 @@ Skript işə düşdükdə sizdən şirkətinizin məlumatlarını daxil etməyi 
 🌐 Veb Port [cari: 8080]: 8080
 🔑 Administrator şifrəsi [cari: admin]: GüclüAdminŞifrəsi
 🔐 Verilənlər bazası (MariaDB root) şifrəsi [cari: admin]: GüclüBazaŞifrəsi
-🏦 Bank adı [cari: Bank Hesabı]: Bank Hesabı (və ya istədiyiniz bank)
-💳 Bank İBAN (istəyə görə) [cari: ]: AZ00XXXX00000000000000000000
-🌐 Bank SWIFT (istəyə görə) [cari: ]: 
+⚙️  Gunicorn Worker sayı [cari: 2]: 2
 ```
 
 Quraşdırma tamamlandıqdan sonra:
@@ -101,8 +99,7 @@ Birbaşa menyudan real vaxt rejimində hesabatlar formalaşır:
 - **Satış Fakturası / Qaiməsi (`SQ-.YYYY.-.#####`):** Satışın rəsmiləşdirilməsi və ƏDV-nin hesablanması.
 - **Rəsmi "Hesab-Faktura (Azərbaycan)" Çapı:** 
   Satış qaiməsində `Çap et` düyməsini basdıqda Azərbaycan standartlarına uyğun format açılır:
-  - Şirkətinizin və Müştərinin VÖEN-i
-  - Bank və İBAN rekvizitləri (İstədiyiniz bank hesabı və İBAN)
+  - Satıcı və Alıcı təşkilatların rekvizitləri (VÖEN, ünvan və s.)
   - Xalis məbləğ, 18% ƏDV və Yekun məbləğ
   - Məbləğin Azərbaycan dilində sözlə yazılışı
   - Direktor, Baş Mühasib imzaları və **M.Y. (Möhür yeri)**
@@ -111,7 +108,7 @@ Birbaşa menyudan real vaxt rejimində hesabatlar formalaşır:
 
 ### 3. 🛒 Satınalma və Təchizat (Buying)
 
-- **Təchizatçılar (Supplier):** Yerli və xarici distribüterlərin VÖEN və bank rekvizitləri ilə qeydiyyatı.
+- **Təchizatçılar (Supplier):** Yerli və xarici distribüterlərin VÖEN və rekvizitləri ilə qeydiyyatı.
 - **Alış Sifarişi (`AS-.YYYY.-.#####`):** Təchizatçıya göndərilən sifariş qaiməsi.
 - **Mədaxil Qaiməsi (`MQ-.YYYY.-.#####`):** Malların anbara fiziki qəbulu.
 - **Alış Qaiməsi (`AQ-.YYYY.-.#####`):** Fakturanın qeydiyyatı. 18% ƏDV avtomatik olaraq `241.01 - ƏDV əvəzləşməsi` hesabına düşür.
@@ -162,14 +159,49 @@ Sistem bütün parametrlərini `.env` faylından oxuyur. Layihədə hazır `.env
 | `COMPANY_NAME` | `TEST MMC` | Şirkətinizin rəsmi adı (hesabatlarda və qaimələrdə çıxır) |
 | `COMPANY_ABBR` | `TM` | Şirkət abreviaturası (hesab kodlarının sonluğunda istifadə olunur) |
 | `COMPANY_TAX_ID` | `1300000001` | Şirkətin 10 rəqəmli rəsmi VÖEN nömrəsi |
-| `BANK_NAME` | `Bank Hesabı` | Şirkətinizin bank adı (qaimələrdə və köçürmələrdə çıxır) |
-| `BANK_IBAN` | *(boş)* | Bankın 28 simvollu İBAN hesabı (istəyə görə) |
-| `BANK_SWIFT` | *(boş)* | Bankın beynəlxalq SWIFT kodu (istəyə görə) |
+| `WORKERS` | `2` | **Gunicorn (Python WSGI) işçi proseslərinin sayı** (Server CPU gücünə görə `(2 * CPU) + 1` düsturu ilə 2, 4 və ya 8) |
 
 ### 💡 Avtomatik Fallback (Boş Sahələrin Qorunması):
 - Əgər `.env` faylında hər hansı parametr boş buraxılarsa və ya qeyd olunmazsa, **1-komanda ilə quraşdırma skripti dayanmır**!
-- Skript avtomatik olaraq təmiz, sazlanmış və işlək standart dəyərləri (`admin`, `8080`, `Bank Hesabı` və s.) tətbiq edir.
+- Skript avtomatik olaraq təmiz, sazlanmış və işlək standart dəyərləri (`admin`, `8080`, `2` worker və s.) tətbiq edir.
 - İstənilən vaxt `.env` faylını açıb parametrləri redaktə edə bilərsiniz.
+
+---
+
+## 💾 Tam Nüsxələmə və Bərpa (Backup & Restore)
+
+Layihədə tam nüsxələmə və bərpa üçün hazır avtomatlaşdırma skriptləri mövcuddur:
+
+### 1. Saytın Tam Backup-ını Götürmək:
+```bash
+./backup.sh
+```
+Bu skript MariaDB verilənlər bazasını (`*.sql.gz`), sayt konfiqurasiyasını (`*.json`) və bütün yüklənmiş faylları (`*-files.tar`, `*-private-files.tar`) arxivləyib birbaşa `./backups/` qovluğuna çıxarır.
+
+### 2. Mövcud Backup-ı Bərpa Etmək (Restore):
+Əgər əlinizdə köhnə ERPNext saytınızın nüsxə faylları varsa:
+1. Fayllarınızı `./backups/` qovluğuna yerləşdirin.
+2. Bu komandanı icra edin:
+   ```bash
+   ./restore.sh
+   ```
+*(Qeyd: Standart quraşdırma zamanı sistem təmiz vəziyyətdə başlayır, bərpa yalnız istifadəçi tələb etdikdə icra olunur).*
+
+---
+
+## 🌐 Xarici Nginx Ters Proksi və SSL (İstəyə görə)
+
+Sistemi internetə açmaq, domen bağlamaq (məsələn: `erp.mujda.site`) və ya SSL (HTTPS) təmin etmək üçün hazır `nginx/` qovluğu və `docker-compose.nginx.yaml` overlay təqdim olunur.
+
+Resurslara qənaət məqsədilə bu modul **standartda qapalıdır**. Aktivləşdirmək istədikdə:
+```bash
+# Üsul 1: Profil ilə:
+docker compose --profile with-nginx up -d
+
+# Üsul 2: Overlay faylı ilə:
+docker compose -f compose.yaml -f docker-compose.nginx.yaml up -d
+```
+Sertifikatları `nginx/ssl/` qovluğuna (`fullchain.pem` və `privkey.pem`) qoyaraq `nginx/conf.d/erpnext.conf` faylında SSL blokunu aktiv edə bilərsiniz.
 
 ---
 
@@ -178,6 +210,8 @@ Sistem bütün parametrlərini `.env` faylından oxuyur. Layihədə hazır `.env
 | Skript | Təsvir |
 |---|---|
 | `./install.sh` | Sistemi 1 komanda ilə interaktiv quraşdırır. |
+| `./backup.sh` | Saytın tam bazasını və fayllarını `./backups/` qovluğuna arxivləyir. |
+| `./restore.sh` | `./backups/` qovluğundakı backup-ı birbaşa ERPNext-ə bərpa edir. |
 | `./test_flow.sh` | Bütün alış, satış, anbar və kassa dövriyyəsini avtomatik icra edib Baş Kitab (GL) balansını yoxlayır. |
 | `./clean.sh` | Test dövriyyəsindən sonra yaranan test fakturalarını və məhsullarını təmizləyib bazanı sıfır vəziyyətinə qaytarır. |
 
@@ -209,13 +243,23 @@ docker compose down -v
 
 ```
 erpnext-azerbaijan/
-├── compose.yaml              # Docker Compose servisləri (MariaDB, Redis, Backend, Frontend)
-├── .env.example              # Konfiqurasiya şablonu
+├── compose.yaml              # Əsas Docker Compose servisləri (MariaDB, Redis, Backend, Frontend)
+├── docker-compose.nginx.yaml # İstəyə görə Xarici Nginx Reverse Proxy overlay
+├── .env.example              # Konfiqurasiya şablonu (Workers, DB şifrəsi, Şirkət rekvizitləri)
 ├── install.sh                # İnteraktiv 1-klik quraşdırıcı
+├── backup.sh                 # 1-klik tam nüsxələmə skripti
+├── restore.sh                # 1-klik tam bərpa skripti
 ├── test_flow.sh              # Tam audit və əməliyyat testi
 ├── clean.sh                  # Test məlumatlarını təmizləyici
 ├── README.md                 # Təlimat sənədi
 ├── .gitignore
+├── backups/                  # Backup faylları qovluğu (*.sql.gz, *.json, *.tar)
+│   └── README.md
+├── nginx/                    # Nginx konfiqurasiyası (İstəyə görə)
+│   ├── nginx.conf
+│   ├── conf.d/
+│   │   └── erpnext.conf      # Domen və WebSocket yönləndirməsi
+│   └── ssl/                  # SSL sertifikatları yeri
 ├── data/
 │   └── azerbaijan_coa.csv    # 427 Rəsmi Azərbaycan Hesablar Planı (CSV formatında)
 └── scripts/

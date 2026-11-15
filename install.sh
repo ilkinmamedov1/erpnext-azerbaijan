@@ -47,6 +47,9 @@ if [ ! -f .env ]; then
     cp .env.example .env
 fi
 
+# Qovluqları təmin et
+mkdir -p backups nginx/ssl
+
 # Mövcud dəyişənləri oxu
 export $(grep -v '^#' .env | xargs -d '\n' 2>/dev/null || true)
 
@@ -72,14 +75,8 @@ if [ -t 0 ]; then
     read -p "🔐 Verilənlər bazası (MariaDB root) şifrəsi [cari: ${DB_ROOT_PASSWORD:-admin}]: " INPUT_DB_PW
     DB_ROOT_PASSWORD=${INPUT_DB_PW:-${DB_ROOT_PASSWORD:-admin}}
 
-    read -p "🏦 Bank adı [cari: ${BANK_NAME:-Bank Hesabı}]: " INPUT_BANK
-    BANK_NAME=${INPUT_BANK:-${BANK_NAME:-Bank Hesabı}}
-
-    read -p "💳 Bank İBAN (istəyə görə) [cari: ${BANK_IBAN:-}]: " INPUT_IBAN
-    BANK_IBAN=${INPUT_IBAN:-${BANK_IBAN:-}}
-
-    read -p "🌐 Bank SWIFT (istəyə görə) [cari: ${BANK_SWIFT:-}]: " INPUT_SWIFT
-    BANK_SWIFT=${INPUT_SWIFT:-${BANK_SWIFT:-}}
+    read -p "⚙️  Gunicorn Worker sayı [cari: ${WORKERS:-2}]: " INPUT_WORKERS
+    WORKERS=${INPUT_WORKERS:-${WORKERS:-2}}
 
     # .env faylını yenilə
     cat << EOF > .env
@@ -99,9 +96,7 @@ COMPANY_ABBR=${COMPANY_ABBR}
 COMPANY_TAX_ID=${COMPANY_TAX_ID}
 COMPANY_DOMAIN=${COMPANY_DOMAIN:-Distribution}
 
-BANK_NAME=${BANK_NAME}
-BANK_SWIFT=${BANK_SWIFT}
-BANK_IBAN=${BANK_IBAN}
+WORKERS=${WORKERS}
 
 DEFAULT_CURRENCY=AZN
 TIMEZONE=Asia/Baku

@@ -50,7 +50,7 @@ A) HESABLAR PLANI (CHART OF ACCOUNTS):
    * Yeni Alt-Hesab Əlavə Etmək:
      Hesablar Planı ağacında müvafiq ana qrupu (məs: 223 - Bank hesabları) 
      seçin, "Alt Hesab Əlavə Et" düyməsini basın. Hesabın nömrəsini (məs: 223.02) 
-     və adını (məs: Paşa Bank AZN) daxil edib yadda saxlayın.
+     və adını (məs: İkinci Hesablaşma Hesabı - AZN) daxil edib yadda saxlayın.
 
 B) ƏDV VƏ VERGİ MEXANİZMİ (TAXES):
    Menyu: Mühasibatlıq > Satış Vergiləri Şablonu / Alış Vergiləri Şablonu
@@ -104,8 +104,7 @@ B) SATIŞ DÖVRİYYƏSİNİN ADDIMLARI:
 C) RƏSMİ "HESAB-FAKTURA (AZƏRBAYCAN)" ÇAP FORMATI:
    - İstənilən Satış Fakturasını (SQ) açın və yuxarı sağdakı "Çap et" (Print) basın.
    - Açılan səhifədə format avtomatik "Hesab-Faktura (Azərbaycan)" olaraq gələcək:
-     * Şirkətinizin adı və VÖEN-i
-     * Bank və İBAN rekvizitləriniz (.env və ya Bank Hesabı bölməsində təyin etdiyiniz bank)
+     * Şirkətinizin adı və VÖEN-i (əgər bank əlavə edilibsə rekvizitlər)
      * Alıcı təşkilatın adı və VÖEN-i
      * Malların/Xidmətlərin cədvəli, ölçü vahidi, qiyməti, məbləği
      * Xalis məbləğ və 18% ƏDV ayrılması
@@ -186,21 +185,31 @@ Menyu: İnsan Resursları (HR)
 Qovluqda olan əsas skriptlər:
 
 1. ./install.sh
-   Sistemi 1 komanda ilə interaktiv quraşdırır. Şirkət adı, VÖEN və bank 
-   məlumatlarını təyin etməyə imkan verir.
+   Sistemi 1 komanda ilə interaktiv quraşdırır. Şirkət adı, VÖEN və sistem 
+   şifrələrini təyin etməyə imkan verir.
 
-2. ./test_flow.sh
+2. ./backup.sh
+   Cari işləyən saytın tam nüsxəsini (MariaDB SQL bazası, konfiqurasiya JSON və 
+   bütün yüklənmiş fayllar) arxivləyib ./backups/ qovluğuna çıxarır.
+
+3. ./restore.sh
+   ./backups/ qovluğuna qoyulmuş backup fayllarını birbaşa ERPNext sisteminə 
+   tam şəkildə bərpa edir.
+
+4. ./test_flow.sh
    Sistemin bütün modullarını (Alış, Satış, Anbar, Kassa, ƏDV) simulyasiya 
    edərək Baş Kitabın debet/kredit balansını yoxlayır.
 
-3. ./clean.sh
+5. ./clean.sh
    Testdən sonra yaranan saxta sənədləri və fakturaları təmizləyərək bazanı 
    100% təmiz istehsalat (real) vəziyyətinə qaytarır.
 
 Docker İdarəetmə Əmrləri:
-- Sistemi başlatmaq:  docker compose up -d
-- Sistemi dayandırmaq: docker compose down
-- Loqları izləmək:    docker compose logs -f backend
+- Sistemi başlatmaq:       docker compose up -d
+- Sistemi dayandırmaq:      docker compose down
+- Nginx ilə başlatmaq:      docker compose --profile with-nginx up -d
+- Baza daxil tam silmək:    docker compose down -v
+- Loqları izləmək:         docker compose logs -f backend
 
 ================================================================================
 🇦🇿 ERPNext Azərbaycan — Biznesinizi Milli Standartlarla Avtomatlaşdırın!

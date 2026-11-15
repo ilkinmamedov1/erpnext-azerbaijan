@@ -12,11 +12,14 @@ services:
       - logs:/home/frappe/frappe-bench/logs
       - ./scripts:/scripts:ro
       - ./data:/data:ro
+      - ./backups:/backups
     environment:
       DB_HOST: db
       DB_PORT: "3306"
       MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-admin}
       MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-admin}
+      WORKERS: ${WORKERS:-2}
+      FRAPPE_GUNICORN_WORKERS: ${WORKERS:-2}
     depends_on:
       configurator:
         condition: service_completed_successfully
@@ -41,12 +44,14 @@ services:
         bench set-config -g redis_queue "redis://$$REDIS_QUEUE";
         bench set-config -g redis_socketio "redis://$$REDIS_QUEUE";
         bench set-config -gp socketio_port $$SOCKETIO_PORT;
+        bench set-config -gp gunicorn_workers $${WORKERS:-2};
     environment:
       DB_HOST: db
       DB_PORT: "3306"
       REDIS_CACHE: redis-cache:6379
       REDIS_QUEUE: redis-queue:6379
       SOCKETIO_PORT: "9000"
+      WORKERS: ${WORKERS:-2}
     volumes:
       - sites:/home/frappe/frappe-bench/sites
       - logs:/home/frappe/frappe-bench/logs
@@ -64,6 +69,7 @@ services:
       - logs:/home/frappe/frappe-bench/logs
       - ./scripts:/scripts:ro
       - ./data:/data:ro
+      - ./backups:/backups
     environment:
       SITE_NAME: ${SITE_NAME:-frontend}
       ADMIN_PASSWORD: ${ADMIN_PASSWORD:-admin}
@@ -71,9 +77,6 @@ services:
       COMPANY_NAME: ${COMPANY_NAME:-TEST MMC}
       COMPANY_ABBR: ${COMPANY_ABBR:-TM}
       COMPANY_TAX_ID: ${COMPANY_TAX_ID:-1300000001}
-      BANK_NAME: ${BANK_NAME:-Bank Hesabı}
-      BANK_SWIFT: ${BANK_SWIFT:-}
-      BANK_IBAN: ${BANK_IBAN:-}
       COA_CSV_PATH: /data/azerbaijan_coa.csv
     entrypoint:
       - bash
@@ -250,6 +253,26 @@ services:
     depends_on:
       configurator:
         condition: service_completed_successfully
+
+  # İSTƏYƏ GÖRƏ: Xarici Nginx Ters Proksi (SSL / Domain üçün - standartda qapalıdır)
+  # Aktivləşdirmək üçün: docker compose --profile with-nginx up -d
+  nginx-proxy:
+    image: nginx:alpine
+    container_name: erp_az_nginx_proxy
+    restart: unless-stopped
+    profiles:
+      - with-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - frontend
+    networks:
+      - erp_network
 
 volumes:
   db-data:
