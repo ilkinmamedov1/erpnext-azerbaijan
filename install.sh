@@ -37,20 +37,66 @@ if [ ! -f .env ]; then
     cp .env.example .env
 fi
 
-# Dəyişənləri oxu
-export $(grep -v '^#' .env | xargs -d '\n')
+# Mövcud dəyişənləri oxu
+export $(grep -v '^#' .env | xargs -d '\n' 2>/dev/null || true)
+
+# Şirkət parametrlərinin interaktiv soruşulması (əgər terminal interaktivdirsə)
+if [ -t 0 ]; then
+    echo -e "\n${CYAN}--- Şirkət və Sistem Parametrlərini Təyin Edin (Dəyişməmək üçün [Enter] basın) ---${NC}"
+    
+    read -p "🏢 Şirkətin adı [cari: ${COMPANY_NAME:-TEST MMC}]: " INPUT_COMP
+    COMPANY_NAME=${INPUT_COMP:-${COMPANY_NAME:-TEST MMC}}
+
+    read -p "🏷️  Şirkət abreviaturası [cari: ${COMPANY_ABBR:-TM}]: " INPUT_ABBR
+    COMPANY_ABBR=${INPUT_ABBR:-${COMPANY_ABBR:-TM}}
+
+    read -p "🔢 VÖEN nömrəsi [cari: ${COMPANY_TAX_ID:-1300000001}]: " INPUT_TAX
+    COMPANY_TAX_ID=${INPUT_TAX:-${COMPANY_TAX_ID:-1300000001}}
+
+    read -p "🌐 Veb Port [cari: ${HTTP_PORT:-8080}]: " INPUT_PORT
+    HTTP_PORT=${INPUT_PORT:-${HTTP_PORT:-8080}}
+
+    read -p "🔑 Administrator şifrəsi [cari: ${ADMIN_PASSWORD:-admin}]: " INPUT_PW
+    ADMIN_PASSWORD=${INPUT_PW:-${ADMIN_PASSWORD:-admin}}
+
+    read -p "🏦 Bank adı [cari: ${BANK_NAME:-Kapital Bank ASC}]: " INPUT_BANK
+    BANK_NAME=${INPUT_BANK:-${BANK_NAME:-Kapital Bank ASC}}
+
+    read -p "💳 Bank İBAN [cari: ${BANK_IBAN:-AZ43AIIB38010019440026214101}]: " INPUT_IBAN
+    BANK_IBAN=${INPUT_IBAN:-${BANK_IBAN:-AZ43AIIB38010019440026214101}}
+
+    # .env faylını yenilə
+    cat << EOF > .env
+# =================================================================
+# ERPNext Azərbaycan - Konfiqurasiya Faylı (.env)
+# =================================================================
+SITE_NAME=${SITE_NAME:-frontend}
+HTTP_PORT=${HTTP_PORT}
+ADMIN_PASSWORD=${ADMIN_PASSWORD}
+DB_ROOT_PASSWORD=${DB_ROOT_PASSWORD:-admin}
+
+COMPANY_NAME=${COMPANY_NAME}
+COMPANY_ABBR=${COMPANY_ABBR}
+COMPANY_TAX_ID=${COMPANY_TAX_ID}
+
+BANK_NAME=${BANK_NAME}
+BANK_SWIFT=${BANK_SWIFT:-AIIBAZ2X}
+BANK_IBAN=${BANK_IBAN}
+EOF
+fi
 
 HTTP_PORT=${HTTP_PORT:-8080}
 SITE_NAME=${SITE_NAME:-frontend}
 ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin}
 COMPANY_NAME=${COMPANY_NAME:-TEST MMC}
 
-echo -e "${GREEN}   ✓ Docker və Docker Compose hazırdır.${NC}"
-echo -e "${GREEN}   ✓ Şirkət: ${COMPANY_NAME} | Port: ${HTTP_PORT} | Sayt: ${SITE_NAME}${NC}"
+echo -e "\n${GREEN}   ✓ Konfiqurasiya təsdiqləndi:${NC}"
+echo -e "${GREEN}   ✓ Şirkət: ${COMPANY_NAME} (${COMPANY_ABBR:-TM}) | VÖEN: ${COMPANY_TAX_ID:-1300000001}${NC}"
+echo -e "${GREEN}   ✓ Port: ${HTTP_PORT} | Sayt: ${SITE_NAME}${NC}"
 
 # 2. Port yoxlanışı
 if ss -tuln 2>/dev/null | grep -q ":${HTTP_PORT} "; then
-    echo -e "${YELLOW}   XƏBƏRDARLIQ: ${HTTP_PORT} portu artıq istifadədə ola bilər.${NC}"
+    echo -e "${YELLOW}   XƏBƏRDARLIQ: ${HTTP_PORT} portu sistemdə aktivdir.${NC}"
 fi
 
 # 3. Docker konteynerlərini işə sal
@@ -58,8 +104,8 @@ echo -e "\n${YELLOW}>>> [2/5] Docker servisləri işə salınır...${NC}"
 docker compose up -d db redis-cache redis-queue configurator backend frontend websocket queue-short queue-long scheduler create-site
 
 # 4. Saytın və Azərbaycan lokalizasiyasının tamamlanmasını izlə
-echo -e "\n${YELLOW}>>> [3/5] Sayt yaradılır, AZN valyutası və 427 Hesablar Planı idxal edilir...${NC}"
-echo -e "   (Bu proses ilk dəfə 1-2 dəqiqə çəkə bilər, zəhmət olmasa gözləyin)\n"
+echo -e "\n${YELLOW}>>> [3/5] Sayt qurulur, AZN valyutası və 427 Hesablar Planı tətbiq edilir...${NC}"
+echo -e "   (Zəhmət olmasa gözləyin, proses bir qədər vaxt apara bilər...)\n"
 
 docker compose logs -f create-site
 
@@ -92,7 +138,8 @@ if [ "$READY" = true ]; then
     echo -e "💰 Valyuta:          ${CYAN}AZN (₼)${NC}"
     echo -e "📑 Hesablar Planı:   ${CYAN}427 Standart Azərbaycan Hesabı (Maliyyə Nazirliyi standartı)${NC}"
     echo -e "🧾 Hesab-Faktura:    ${CYAN}Azərbaycan standartında Qaimə çap formatı aktivdir${NC}"
-    echo -e "\n${YELLOW}>>> [5/5] Əməliyyatların işləməsini test etmək üçün bu komandanı icra edin:${NC}"
+    echo -e "✨ İlkin Vəziyyət:    ${CYAN}100% Təmiz (heç bir saxta/test fakturası yoxdur)${NC}"
+    echo -e "\n${YELLOW}>>> [5/5] Əməliyyat dövriyyəsini test etmək istədikdə bu komandanı icra edin:${NC}"
     echo -e "   ${CYAN}./test_flow.sh${NC}\n"
 else
     echo -e "${RED}XƏBƏRDARLIQ: Sayt hələ tam HTTP cavabı vermir. 'docker compose logs frontend' ilə baxa bilərsiniz.${NC}"

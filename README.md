@@ -1,138 +1,192 @@
-# 🇦🇿 ERPNext Azərbaycan Lokalizasiyası & Hesablar Planı (v15)
+# 🇦🇿 ERPNext Azərbaycan Lokalizasiyası & Standart Hesablar Planı (v15)
 
-Azərbaycan Respublikası Maliyyə Nazirliyinin standartlarına uyğunlaşdırılmış **427 Hesabdan ibarət Milli Mühasibat Hesablar Planı**, **AZN valyutası**, **ƏDV (18%)**, **Bank və Kassa**, **Azərbaycan dilində Nömrələmə Seriyaları** və **Hesab-Faktura (Qaimə) çap forması** ilə təchiz olunmuş tam avtomatlaşdırılmış 1-komandalı ERPNext v15 Docker paketi.
+Azərbaycan Respublikasının qanunvericiliyinə, Vergi Məcəlləsinə və Maliyyə Nazirliyinin Milli Mühasibat Standartlarına tam uyğunlaşdırılmış **427 Hesabdan ibarət Hesablar Planı**, **AZN valyutası**, **ƏDV (18%)**, **Bank və Kassa**, **Azərbaycan dilində Nömrələmə Seriyaları** və **Rəsmi Hesab-Faktura çap forması** ilə təchiz olunmuş, 1 komanda ilə qurulan ERPNext v15 Docker paketi.
+
+---
+
+## 📌 Layihə Haqqında
+
+**ERPNext** — qlobal miqyasda minlərlə müəssisə tərəfindən istifadə olunan, dünyanın ən güclü və etibarlı açıq qaynaqlı ERP (Müəssisə Resurslarının İdarə Edilməsi) sistemidir. 
+
+Lakin rəsmi ERPNext distributivində Azərbaycan dili, AZN valyutası və yerli mühasibat uçotu standartları olmadığından, şirkətlər hər dəfə sıfırdan aylar boyu fərdi sazlama aparmağa məcbur qalırdılar. 
+
+Bu layihə həmin problemi kökündən həll edir:
+- 🚀 **1-Komanda ilə Quraşdırılma:** Docker vasitəsilə 2 dəqiqə ərzində bütün sistem işə düşür.
+- 🏢 **Öz Şirkət Adınızı Təyin Etmə:** Quraşdırma zamanı terminalda şirkətinizin adını, abreviaturasını, VÖEN və bank rekvizitlərini birbaşa daxil edə bilərsiniz.
+- ✨ **100% Təmiz Baza (Zero Dummy Data):** Sistemdə heç bir saxta və ya köhnə test sənədi/fakturası yoxdur. Quraşdırıldıqdan dərhal sonra təmiz şəkildə real biznes əməliyyatlarınızı daxil etməyə hazırdır.
+- 📑 **Maliyyə Nazirliyinin 427 Hesabı:** Bütün sintetik və analitik hesablar iyerarxik ağac formasında avtomatik qurulur.
 
 ---
 
 ## ⚡ 1-Komanda ilə Quraşdırılma (Quickstart)
 
-Heç bir əlavə sazlama tələb olunmur. Sadəcə repozitoriyanı klonlayın və quraşdırma skriptini başladın:
+### Tələblər:
+- Əməliyyat sistemi: Linux (Ubuntu, Debian, CentOS), macOS və ya Windows (WSL2)
+- [Docker](https://docs.docker.com/get-docker/) və [Docker Compose v2](https://docs.docker.com/compose/)
+
+### Quraşdırma Addımları:
 
 ```bash
+# 1. Repozitoriyanı klonlayın
 git clone https://github.com/ilkinmamedov1/erpnext-azerbaijan.git
+
+# 2. Qovluğa daxil olun
 cd erpnext-azerbaijan
+
+# 3. Quraşdırma skriptini başladın
 ./install.sh
 ```
 
-Quraşdırma başa çatdıqdan sonra:
+Skript işə düşdükdə sizdən şirkətinizin məlumatlarını daxil etməyi xahiş edəcək (standart dəyərləri saxlamaq üçün sadəcə `Enter` basa bilərsiniz):
+```
+🏢 Şirkətin adı [cari: TEST MMC]: Şirkətinizin Adı MMC
+🏷️  Şirkət abreviaturası [cari: TM]: ŞA
+🔢 VÖEN nömrəsi [cari: 1300000001]: 1400123451
+🌐 Veb Port [cari: 8080]: 8080
+🔑 Administrator şifrəsi [cari: admin]: güclü_şifrə
+🏦 Bank adı [cari: Kapital Bank ASC]: Kapital Bank ASC
+💳 Bank İBAN [cari: AZ43AIIB38010019440026214101]: AZ...
+```
+
+Quraşdırma tamamlandıqdan sonra:
 - 🌐 **Veb Ünvan:** [http://localhost:8080](http://localhost:8080)
 - 👤 **İstifadəçi adı:** `Administrator`
-- 🔑 **Şifrə:** `admin` *(və ya `.env` faylında təyin etdiyiniz şifrə)*
+- 🔑 **Şifrə:** Təyin etdiyiniz şifrə (və ya `admin`)
 
 ---
 
-## 🧪 Əməliyyatların və Baş Kitabın Yoxlanılması (Verification)
+## 📖 Modullar Üzrə Ətraflı İstifadə Təlimatı
 
-Sistemin tam işlək olduğunu və mühasibat balansının 100% oturduğunu yoxlamaq üçün test skriptini işə salın:
+Sistem Azərbaycan biznes mühitinə uyğunlaşdırılmış aşağıdakı əsas modulları təqdim edir:
 
+### 1. 🏛️ Mühasibatlıq və Maliyyə (Accounting)
+
+#### A. Hesablar Planı (Chart of Accounts)
+Sistem Maliyyə Nazirliyinin təsdiq etdiyi 8 əsas bölmə üzrə 427 hesabı dərhal istifadəyə təqdim edir:
+- **1 - Uzunmüddətli Aktivlər:** Torpaq, tikili və avadanlıqlar (111), TTA üzrə yığılmış amortizasiya (112), Qeyri-maddi aktivlər (101).
+- **2 - Qısamüddətli Aktivlər:** Material ehtiyatları (201), Mallar (205), Hazır məhsul (204), Alıcıların debitor borcları (211), Kassa (221), Bank hesabları (223), ƏDV əvəzləşməsi (241).
+- **3 - Kapital:** Nizamnamə kapitalı (301), Bölüşdürülməmiş mənfəət (341), Ehtiyat kapitalı (321).
+- **4 - Uzunmüddətli Öhdəliklər:** Uzunmüddətli bank kreditləri (401), Faiz borcları (402).
+- **5 - Qısamüddətli Öhdəliklər:** Təchizatçılara kreditor borcları (531), Vergi öhdəlikləri / ƏDV (521), Əməkhaqqı borcları (533).
+- **6 - Gəlirlər:** Əsas əməliyyat gəlirləri / Satış (601), Sair əməliyyat gəlirləri (611), Valyuta məzənnə fərqi mənfəəti (631).
+- **7 - Xərclər:** Satılmış malların dəyəri / Maya dəyəri - SDX (701), Kommersiya xərcləri (711), İnzibati xərclər (721).
+- **8 - Maliyyə Nəticələri:** Hesabat dövrünün xalis mənfəəti / zərəri (801).
+
+#### B. ƏDV və Vergi Mexanizmi
+- **ƏDV 18%:** Satış fakturasında avtomatik `521.01 - ƏDV öhdəliyi` hesabına kredit yazılır.
+- **ƏDV Əvəzləşdirilən (18%):** Alış fakturasında avtomatik `241.01 - ƏDV əvəzləşməsi (yerli)` hesabına debet yazılır.
+- **ƏDV 0% (İxrac)** və **ƏDV-dən Azad** şablonları da hazırdır.
+
+#### C. Valyuta və Mərkəzi Bank (AMB) Məzənnələri
+Sistem AZN (₼) valyutası üzərində qurulub. USD, EUR, RUB, TRY və GBP məzənnələri avtomatik tanınır. Xarici valyutada faktura yazıldıqda məzənnə fərqi avtomatik `631.04` (gəlir) və ya `731` (zərər) hesabına silinir.
+
+#### D. Maliyyə Hesabatları
+Birbaşa menyudan real vaxt rejimində hesabatlar formalaşır:
+- **Balans Hesabatı (Balance Sheet)**
+- **Mənfəət və Zərər Hesabatı (Profit and Loss)**
+- **Baş Kitab (General Ledger)**
+- **Dövriyyə Cədvəli (Trial Balance)**
+- **Debitor və Kreditor Yaşlanma Hesabatı (Accounts Receivable / Payable Aging)**
+
+---
+
+### 2. 💼 Satış və Müştərilər (Selling)
+
+- **Müştərilər (Customer):** Hər bir müştərinin kartoçkasında **VÖEN** sahəsi mövcuddur. Müştəri tipi: Şirkət (Hüquqi şəxs) və ya Fərdi sahibkar.
+- **Satış Sifarişi (`SS-.YYYY.-.#####`):** Müştəri ilə razılaşdırılmış qiymət və miqdar üzrə sifariş sənədi.
+- **Təhvil Qaiməsi (`TQ-.YYYY.-.#####`):** Malların anbardan çıxarılaraq müştəriyə təhvil verilməsi.
+- **Satış Fakturası / Qaiməsi (`SQ-.YYYY.-.#####`):** Satışın rəsmiləşdirilməsi və ƏDV-nin hesablanması.
+- **Rəsmi "Hesab-Faktura (Azərbaycan)" Çapı:** 
+  Satış qaiməsində `Çap et` düyməsini basdıqda Azərbaycan standartlarına uyğun format açılır:
+  - Şirkətinizin və Müştərinin VÖEN-i
+  - Bank və İBAN rekvizitləri (Kapital Bank və s.)
+  - Xalis məbləğ, 18% ƏDV və Yekun məbləğ
+  - Məbləğin Azərbaycan dilində sözlə yazılışı
+  - Direktor, Baş Mühasib imzaları və **M.Y. (Möhür yeri)**
+
+---
+
+### 3. 🛒 Satınalma və Təchizat (Buying)
+
+- **Təchizatçılar (Supplier):** Yerli və xarici distribüterlərin VÖEN və bank rekvizitləri ilə qeydiyyatı.
+- **Alış Sifarişi (`AS-.YYYY.-.#####`):** Təchizatçıya göndərilən sifariş qaiməsi.
+- **Mədaxil Qaiməsi (`MQ-.YYYY.-.#####`):** Malların anbara fiziki qəbulu.
+- **Alış Qaiməsi (`AQ-.YYYY.-.#####`):** Fakturanın qeydiyyatı. 18% ƏDV avtomatik olaraq `241.01 - ƏDV əvəzləşməsi` hesabına düşür.
+
+---
+
+### 4. 📦 Anbar və Material Ehtiyatları (Stock)
+
+#### A. Çoxanbarlı Struktur:
+- **Bütün Anbarlar** (Ana Qrup)
+  - ├── **Əsas Anbar (Mallar)** ➔ `205.01` hesabı
+  - ├── **Hazır Məhsul Anbarı** ➔ `204.01` hesabı
+  - ├── **Xammal və Materiallar Anbarı** ➔ `201.01.01` hesabı
+  - ├── **Bitməmiş İstehsalat Anbarı** ➔ `202.01` hesabı
+  - └── **Tranzit Anbar (Yolda olan mallar)** ➔ `207` hesabı
+
+#### B. Nomenklatura və Ölçü Vahidləri:
+- Məhsul kartoçkası (Item Code, Barkod, Brend).
+- Standart Azərbaycan ölçü vahidləri: **Ədəd**, **Qutu**, **Dəst**, **Paçka**, **Rulon**, **Qram**, **Kq**, **Ton**.
+- Daxili Yerdəyişmə (Material Transfer): Məsələn, Əsas Anbardan Hazır Məhsul Anbarına daxili köçürmə.
+- İnventarizasiya və Sayım (Stock Reconciliation): Faktiki anbar sayımı ilə sistem qalıqlarının uyğunlaşdırılması.
+
+---
+
+### 5. 💳 Kassa və Bank Əməliyyatları (Payments)
+
+- **Ödəniş Sənədləri (`ÖD-.YYYY.-.#####`):**
+  - **Nağd Kassa (221.01):** Kassa məxaric (xərclərin nağd ödənilməsi) və mədaxil əməliyyatları.
+  - **Bank Köçürməsi (223.01):** Təchizatçılara köçürmələr və müştərilərdən daxilolmalar.
+  - **POS-Terminal / Kart:** Pərakəndə satış nöqtələrindən daxilolmalar.
+  - **ƏDV Depozit Hesabı (226):** Vergi orqanının ƏDV depozit sub-uçot hesabı vasitəsilə ƏDV-nin birbaşa ödənilməsi və əvəzləşdirilməsi.
+
+---
+
+## 🛠️ Əlavə Köməkçi Skriptlər
+
+| Skript | Təsvir |
+|---|---|
+| `./install.sh` | Sistemi 1 komanda ilə interaktiv quraşdırır. |
+| `./test_flow.sh` | Bütün alış, satış, anbar və kassa dövriyyəsini avtomatik icra edib Baş Kitab (GL) balansını yoxlayır. |
+| `./clean.sh` | Test dövriyyəsindən sonra yaranan test fakturalarını və məhsullarını təmizləyib bazanı sıfır vəziyyətinə qaytarır. |
+
+Sistemi idarə etmək üçün Docker əmrləri:
 ```bash
-./test_flow.sh
-```
+# Arxa planda işə salmaq
+docker compose up -d
 
-Bu skript avtomatik olaraq:
-1. **Məhsul, Müştəri və Təchizatçı** yaradır (VÖEN nömrələri ilə).
-2. **Alış Dövriyyəsi:** Alış Sifarişi (AS) ➔ Mədaxil Qaiməsi (MQ) ➔ Alış Fakturası (AQ, 18% ƏDV ilə) ➔ Bank Köçürməsi (ÖD).
-3. **Satış Dövriyyəsi:** Satış Sifarişi (SS) ➔ Təhvil Qaiməsi (TQ) ➔ Satış Fakturası (SQ, 18% ƏDV ilə) ➔ Bank Mədaxili (ÖD).
-4. **Anbar Dövriyyəsi:** Əsas Anbardan Hazır Məhsul Anbarına daxili yerdəyişmə.
-5. **Kassa Xərci:** Kassadan (221.01) inzibati xərclərin (721.19) ödənilməsi.
-6. **Mühasibat Auditi:** Baş Kitab (General Ledger) debet/kredit fərqini (0.00 ₼) və Anbar qalıqlarını yoxlayır.
+# Dayandırmaq
+docker compose down
 
----
-
-## 📦 Paketə Daxil Olan Xüsusiyyətlər
-
-### 1. 📑 427 Hesabdan İbarət Standart Azərbaycan Hesablar Planı
-- **Bölmə 1:** Uzunmüddətli Aktivlər (Əsas vəsaitlər, Qeyri-maddi aktivlər, Amortizasiya)
-- **Bölmə 2:** Qısamüddətli Aktivlər (Materiallar, Mallar, Debitor borclar, Kassa, Bank)
-- **Bölmə 3:** Kapital (Nizamnamə kapitalı, Bölüşdürülməmiş mənfəət, Ehtiyatlar)
-- **Bölmə 4:** Uzunmüddətli Öhdəliklər (Uzunmüddətli kreditlər və borclar)
-- **Bölmə 5:** Qısamüddətli Öhdəliklər (Kreditor borclar, ƏDV öhdəliyi, Əməkhaqqı borcları)
-- **Bölmə 6:** Gəlirlər (Əsas əməliyyat gəlirləri, Mal satışı, Xidmət göstərilməsi)
-- **Bölmə 7:** Xərclər (Satışın maya dəyəri - SDX, İnzibati xərclər, Kommersiya xərcləri)
-- **Bölmə 8:** Maliyyə Nəticələri (Hesabat dövrünün mənfəəti/zərəri)
-
-### 2. 🏛️ Şirkət İlkin Mühasibat Hesablarının Avtomatik Əlaqələndirilməsi
-- **Kassa:** `221.01 - Kassa - AZN`
-- **Bank:** `223.01 - Bank hesabı - AZN (Əsas bank)`
-- **Alıcılar:** `211.01.01 - Yerli alıcılar - hüquqi şəxslər`
-- **Malsatanlar:** `531.01.01 - Yerli malsatanlar - hüquqi şəxslər`
-- **Mallar:** `205.01 - Mallar - anbar`
-- **Gəlir:** `601.02.01 - Mal satışı - pərakəndə`
-- **Xərc (SDX):** `701.04 - Alınan malların dəyəri (SDX)`
-- **ƏDV Öhdəliyi:** `521.01 - ƏDV öhdəliyi`
-- **ƏDV Əvəzləşməsi:** `241.01 - ƏDV əvəzləşməsi - yerli alışlar` və `241.02 - idxal`
-- **ƏDV Depoziti:** `226 - ƏDV sub-uçot hesabı`
-
-### 3. 🏢 Azərbaycan Nomenklaturasına Uyğun Anbar Strukturu
-- **Bütün Anbarlar** (Ana qrup)
-- **Əsas Anbar (Mallar)** ➔ `205.01`
-- **Hazır Məhsul Anbarı** ➔ `204`
-- **Xammal və Materiallar Anbarı** ➔ `201`
-- **Bitməmiş İstehsalat Anbarı** ➔ `202`
-- **Tranzit Anbar (Yolda olan mallar)** ➔ `207`
-
-### 4. 🏷️ Sənəd Nömrələmə Seriyaları (Naming Series)
-- Satış Qaiməsi: `SQ-.YYYY.-.#####`
-- Alış Qaiməsi: `AQ-.YYYY.-.#####`
-- Satış Sifarişi: `SS-.YYYY.-.#####`
-- Alış Sifarişi: `AS-.YYYY.-.#####`
-- Təhvil Qaiməsi: `TQ-.YYYY.-.#####`
-- Mədaxil Qaiməsi: `MQ-.YYYY.-.#####`
-- Ödəniş Qəbzi: `ÖD-.YYYY.-.#####`
-- Memorial Qaimə (Journal Entry): `MƏ-.YYYY.-.#####`
-
-### 5. 🧾 Rəsmi "Hesab-Faktura (Azərbaycan)" Çap Formatı
-- Şirkət və Müştəri VÖEN rekvizitləri
-- Bank və İBAN rekvizitləri (Kapital Bank ASC və s.)
-- Əsas məbləğ, 18% ƏDV ayrılması və yekun ödəniləcək məbləğ
-- Məbləğin sözlə avtomatik yazılışı
-- Rəhbər, Baş Mühasib və M.Y. (Möhür yeri) sahələri
-
-### 6. 💱 Mərkəzi Bank (AMB) Məzənnə Şablonları
-- USD/AZN (1.7000), EUR/AZN (1.8450), RUB/AZN, TRY/AZN, GBP/AZN
-
----
-
-## ⚙️ Konfiqurasiya (.env)
-
-Quraşdırmadan öncə `.env` faylını redaktə edərək öz şirkətinizin məlumatlarını təyin edə bilərsiniz:
-
-```ini
-SITE_NAME=frontend
-HTTP_PORT=8080
-ADMIN_PASSWORD=admin
-DB_ROOT_PASSWORD=admin
-
-COMPANY_NAME=TEST MMC
-COMPANY_ABBR=TM
-COMPANY_TAX_ID=1300000001
-
-BANK_NAME=Kapital Bank ASC
-BANK_SWIFT=AIIBAZ2X
-BANK_IBAN=AZ43AIIB38010019440026214101
+# Loqlara baxmaq
+docker compose logs -f backend
 ```
 
 ---
 
-## 🛠️ Qovluq Strukturu
+## 📁 Qovluq Strukturu
 
 ```
 erpnext-azerbaijan/
-├── compose.yaml              # Docker Compose konfiqurasiyası
-├── .env.example              # Mühit parametrləri şablonu
-├── install.sh                # 1-komanda ilə quraşdırıcı
-├── test_flow.sh              # 1-komanda ilə əməliyyat testi
+├── compose.yaml              # Docker Compose servisləri (MariaDB, Redis, Backend, Frontend)
+├── .env.example              # Konfiqurasiya şablonu
+├── install.sh                # İnteraktiv 1-klik quraşdırıcı
+├── test_flow.sh              # Tam audit və əməliyyat testi
+├── clean.sh                  # Test məlumatlarını təmizləyici
 ├── README.md                 # Təlimat sənədi
 ├── .gitignore
 ├── data/
-│   └── azerbaijan_coa.csv    # 427 Standart Hesabın tam siyahısı
+│   └── azerbaijan_coa.csv    # 427 Rəsmi Azərbaycan Hesablar Planı (CSV formatında)
 └── scripts/
     ├── init_azerbaijan.py    # Master lokalizasiya və avtomatlaşdırma skripti
-    └── run_tests.py          # Tam dövriyyə və audit yoxlanışı
+    ├── run_tests.py          # Bütün dövriyyələri simulyasiya edən test skripti
+    ├── clean_test_data.py    # Baza təmizləmə skripti
+    └── legacy/               # Ehtiyat/tarixi skriptlər
 ```
 
 ---
 
-## 📜 Lisenziya & Müəllif
-Müəllif: **İlkin Məmmədov** ([@ilkinmamedov1](https://github.com/ilkinmamedov1))  
-Lisenziya: MIT License.
+## 👨‍💻 Müəllif & Əlaqə
+- **Müəllif:** İlkin Məmmədov ([@ilkinmamedov1](https://github.com/ilkinmamedov1))
+- **Lisenziya:** MIT License — İstənilən şəxs və ya şirkət tərəfindən sərbəst istifadə oluna, dəyişdirilə və yayıla bilər.
