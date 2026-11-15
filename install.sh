@@ -6,6 +6,16 @@
 
 set -e
 
+# Avtomatik klonlama yoxlanışı (curl ilə icra edildikdə)
+if [ ! -f "compose.yaml" ]; then
+    echo ">>> Layihə faylları aşkar edilmədi. GitHub-dan yüklənir..."
+    TARGET_DIR="${HOME}/erpnext-azerbaijan"
+    if [ ! -d "$TARGET_DIR" ]; then
+        git clone https://github.com/ilkinmamedov1/erpnext-azerbaijan.git "$TARGET_DIR"
+    fi
+    cd "$TARGET_DIR"
+fi
+
 CYAN='\033[0;36m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'

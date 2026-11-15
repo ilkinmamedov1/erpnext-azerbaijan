@@ -24,16 +24,17 @@ Bu layihə həmin problemi kökündən həll edir:
 - Əməliyyat sistemi: Linux (Ubuntu, Debian, CentOS), macOS və ya Windows (WSL2)
 - [Docker](https://docs.docker.com/get-docker/) və [Docker Compose v2](https://docs.docker.com/compose/)
 
-### Quraşdırma Addımları:
+### 🚀 1-Sətirlik Birbaşa Quraşdırma (Ən Asan Yol):
 
+Terminalda birbaşa bu komandanı icra edin:
 ```bash
-# 1. Repozitoriyanı klonlayın
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/ilkinmamedov1/erpnext-azerbaijan/main/install.sh)"
+```
+
+Və ya klassik üsulla:
+```bash
 git clone https://github.com/ilkinmamedov1/erpnext-azerbaijan.git
-
-# 2. Qovluğa daxil olun
 cd erpnext-azerbaijan
-
-# 3. Quraşdırma skriptini başladın
 ./install.sh
 ```
 

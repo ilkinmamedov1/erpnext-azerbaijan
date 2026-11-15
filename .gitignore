@@ -1,5 +1,5 @@
-# Environment
-.env
+# Environment (defaults included in repo)
+# .env.local
 
 # Runtime data & logs
 sites/
