@@ -12,7 +12,7 @@ Lakin rəsmi ERPNext distributivində Azərbaycan dili, AZN valyutası və yerli
 
 Bu layihə həmin problemi kökündən həll edir:
 - 🚀 **1-Komanda ilə Quraşdırılma:** Docker vasitəsilə 2 dəqiqə ərzində bütün sistem işə düşür.
-- 🏢 **Öz Şirkət Adınızı Təyin Etmə:** Quraşdırma zamanı terminalda şirkətinizin adını, abreviaturasını, VÖEN və bank rekvizitlərini birbaşa daxil edə bilərsiniz.
+- 🏢 **Öz Şirkət Adınızı Təyin Etmə:** Quraşdırma zamanı terminalda şirkətinizin adını, abreviaturasını, VÖEN və sistem şifrələrini birbaşa daxil edə bilərsiniz.
 - ✨ **100% Təmiz Baza (Zero Dummy Data):** Sistemdə heç bir saxta və ya köhnə test sənədi/fakturası yoxdur. Quraşdırıldıqdan dərhal sonra təmiz şəkildə real biznes əməliyyatlarınızı daxil etməyə hazırdır.
 - 📑 **Maliyyə Nazirliyinin 427 Hesabı:** Bütün sintetik və analitik hesablar iyerarxik ağac formasında avtomatik qurulur.
 
@@ -53,6 +53,20 @@ Quraşdırma tamamlandıqdan sonra:
 - 🌐 **Veb Ünvan:** [http://localhost:8080](http://localhost:8080)
 - 👤 **İstifadəçi adı:** `Administrator`
 - 🔑 **Şifrə:** Təyin etdiyiniz şifrə (və ya `admin`)
+
+---
+
+## 📸 Ekran Görüntüləri (Sistem Panelləri)
+
+Sistem Azərbaycan dilində tam uyğunlaşdırılmış idarəetmə panelləri və analitik hesabat qrafikləri ilə təchiz olunub:
+
+| 🏛️ 1. Mühasibatlıq Paneli (427 Hesablar Planı & AZN) | 🛒 2. Satınalma & Təchizatçılar |
+|:---:|:---:|
+| <img src="docs/images/01_muhasibatliq_accounting.png" width="480" alt="Mühasibatlıq"/> | <img src="docs/images/02_satinalma_buying.png" width="480" alt="Satınalma"/> |
+
+| 💼 3. Satış & CRM Qrafikləri | 📦 4. Anbar & 6 Struktur Depo |
+|:---:|:---:|
+| <img src="docs/images/03_satis_selling.png" width="480" alt="Satış"/> | <img src="docs/images/04_anbar_stock.png" width="480" alt="Anbar"/> |
 
 ---
 
@@ -140,6 +154,35 @@ Birbaşa menyudan real vaxt rejimində hesabatlar formalaşır:
   - **Bank Köçürməsi (223.01):** Təchizatçılara köçürmələr və müştərilərdən daxilolmalar.
   - **POS-Terminal / Kart:** Pərakəndə satış nöqtələrindən daxilolmalar.
   - **ƏDV Depozit Hesabı (226):** Vergi orqanının ƏDV depozit sub-uçot hesabı vasitəsilə ƏDV-nin birbaşa ödənilməsi və əvəzləşdirilməsi.
+
+---
+
+## 📱 Mobil Telefon Dəstəyi və Mobil Tətbiq (ERPNext Mobile App)
+
+ERPNext müasir adaptiv interfeysə (**100% Mobile Responsive**) və geniş mobil tətbiq ekosisteminə malikdir. Rəhbərlər və əməkdaşlar şirkətin bütün əməliyyatlarını smartfonlarından birbaşa idarə edə bilərlər.
+
+<p align="center">
+  <img src="docs/images/05_mobil_app_responsive.png" alt="ERPNext Mobil Telefon İnterfeysi" width="320"/>
+</p>
+
+### 1. 📲 Google Play Store (Android Tətbiqi):
+Android istifadəçiləri Google Play Store-da rəsmi və icma tərəfindən hazırlanmış ERPNext mobil tətbiqlərindən sərbəst istifadə edə bilərlər:
+- **ERPNext Mobile App (Google Play):**  
+  👉 **[Google Play Store-dan Yüklə (ERPNext Mobile)](https://play.google.com/store/search?q=ERPNext&c=apps)**
+- **Frappe HR & Davamiyyət Tətbiqi (Play Store):**  
+  👉 **[Frappe HRMS Google Play](https://play.google.com/store/apps/details?id=io.frappe.hrms)** (Əməkdaşların GPS ilə işə giriş-çıxış qeydiyyatı, məzuniyyət müraciətləri və elektron maaş vərəqələri üçün).
+
+> **💡 Mobil Tətbiqə Necə Qoşulmalı?**  
+> 1. Google Play-dən **ERPNext Mobile** tətbiqini yükləyin.  
+> 2. Server ünvanı sahəsinə öz saytınızın ünvanını yazın (Məsələn: `http://server-ip:8080` və ya `https://erp.domain.az`).  
+> 3. İstifadəçi adınızı (`Administrator` və ya şirkət email-i) və şifrənizi daxil edin.  
+> 4. Bütün satışlar, fakturalar, anbar qalıqları və bildirişlər anında cibinizdə olacaq!
+
+---
+
+### 2. 🍏 Apple App Store & PWA (iOS / iPhone):
+- **PWA (Progressive Web App):** iPhone və iPad istifadəçiləri Safari brauzerində saytı açıb **"Paylaş" ➔ "Ana Ekrana Əlavə Et" (Add to Home Screen)** düyməsini basmaqla heç bir əlavə quraşdırmaya ehtiyac olmadan sistemi tam yerli (native) mobil tətbiq kimi işlədə bilərlər.
+- Kamera ilə sənəd skaneri, barkod oxuma və real-vaxt bildirişləri mobil interfeysdə tam dəstəklənir.
 
 ---
 
@@ -262,6 +305,8 @@ erpnext-azerbaijan/
 │   └── ssl/                  # SSL sertifikatları yeri
 ├── data/
 │   └── azerbaijan_coa.csv    # 427 Rəsmi Azərbaycan Hesablar Planı (CSV formatında)
+├── docs/
+│   └── images/               # Sistem panelləri və mobil interfeys şəkilləri
 └── scripts/
     ├── init_azerbaijan.py    # Master lokalizasiya və avtomatlaşdırma skripti
     ├── run_tests.py          # Bütün dövriyyələri simulyasiya edən test skripti

@@ -180,7 +180,28 @@ Menyu: İnsan Resursları (HR)
   tapşırıqlarının avtomatik formalaşdırılması.
 
 ================================================================================
-8. SİSTEMİN İDARƏ EDİLMƏSİ VƏ KÖMƏKÇİ KOMANDALAR
+8. MOBİL TELEFON DƏSTƏYİ VƏ MOBİL TƏTBİQ (ERPNEXT MOBILE APP)
+================================================================================
+ERPNext sistemi tam adaptivdir (100% Mobile Responsive) və mobil tətbiqlərlə 
+işləmə imkanına malikdir:
+
+A) Google Play Store (Android):
+   - "ERPNext Mobile" tətbiqi vasitəsilə birbaşa smartfonda işləmək mümkündür:
+     Play Store: https://play.google.com/store/search?q=ERPNext&c=apps
+   - "Frappe HRMS" tətbiqi (İşçilərin GPS davamiyyəti və məzuniyyət üçün):
+     Play Store: https://play.google.com/store/apps/details?id=io.frappe.hrms
+
+B) iPhone və iOS (Apple):
+   - Safari brauzerində saytı açıb "Paylaş" -> "Ana Ekrana Əlavə Et" seçərək 
+     PWA (mobil tətbiq) kimi birbaşa istifadə edə bilərsiniz.
+
+Qoşulma Qaydası:
+1. Mobil tətbiqi açın.
+2. Server ünvanını yazın (məs: http://server-ip:8080 və ya https://erp.saytiniz.az).
+3. İstifadəçi adı və şifrənizi daxil edin.
+
+================================================================================
+9. SİSTEMİN İDARƏ EDİLMƏSİ VƏ KÖMƏKÇİ KOMANDALAR
 ================================================================================
 Qovluqda olan əsas skriptlər:
 
