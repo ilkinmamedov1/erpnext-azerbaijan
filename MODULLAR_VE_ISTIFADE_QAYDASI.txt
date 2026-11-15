@@ -105,7 +105,7 @@ C) RƏSMİ "HESAB-FAKTURA (AZƏRBAYCAN)" ÇAP FORMATI:
    - İstənilən Satış Fakturasını (SQ) açın və yuxarı sağdakı "Çap et" (Print) basın.
    - Açılan səhifədə format avtomatik "Hesab-Faktura (Azərbaycan)" olaraq gələcək:
      * Şirkətinizin adı və VÖEN-i
-     * Bank və İBAN rekvizitləriniz (Kapital Bank və s.)
+     * Bank və İBAN rekvizitləriniz (.env və ya Bank Hesabı bölməsində təyin etdiyiniz bank)
      * Alıcı təşkilatın adı və VÖEN-i
      * Malların/Xidmətlərin cədvəli, ölçü vahidi, qiyməti, məbləği
      * Xalis məbləğ və 18% ƏDV ayrılması

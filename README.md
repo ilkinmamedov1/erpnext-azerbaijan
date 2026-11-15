@@ -39,14 +39,16 @@ cd erpnext-azerbaijan
 ```
 
 Skript işə düşdükdə sizdən şirkətinizin məlumatlarını daxil etməyi xahiş edəcək (standart dəyərləri saxlamaq üçün sadəcə `Enter` basa bilərsiniz):
-```
-🏢 Şirkətin adı [cari: TEST MMC]: Şirkətinizin Adı MMC
-🏷️  Şirkət abreviaturası [cari: TM]: ŞA
+```text
+🏢 Şirkətin adı [cari: TEST MMC]: Şirkətim MMC
+🏷️  Şirkət abreviaturası [cari: TM]: ŞM
 🔢 VÖEN nömrəsi [cari: 1300000001]: 1400123451
 🌐 Veb Port [cari: 8080]: 8080
-🔑 Administrator şifrəsi [cari: admin]: güclü_şifrə
-🏦 Bank adı [cari: Kapital Bank ASC]: Kapital Bank ASC
-💳 Bank İBAN [cari: AZ43AIIB38010019440026214101]: AZ...
+🔑 Administrator şifrəsi [cari: admin]: GüclüAdminŞifrəsi
+🔐 Verilənlər bazası (MariaDB root) şifrəsi [cari: admin]: GüclüBazaŞifrəsi
+🏦 Bank adı [cari: Bank Hesabı]: Bank Hesabı (və ya istədiyiniz bank)
+💳 Bank İBAN (istəyə görə) [cari: ]: AZ00XXXX00000000000000000000
+🌐 Bank SWIFT (istəyə görə) [cari: ]: 
 ```
 
 Quraşdırma tamamlandıqdan sonra:
@@ -100,7 +102,7 @@ Birbaşa menyudan real vaxt rejimində hesabatlar formalaşır:
 - **Rəsmi "Hesab-Faktura (Azərbaycan)" Çapı:** 
   Satış qaiməsində `Çap et` düyməsini basdıqda Azərbaycan standartlarına uyğun format açılır:
   - Şirkətinizin və Müştərinin VÖEN-i
-  - Bank və İBAN rekvizitləri (Kapital Bank və s.)
+  - Bank və İBAN rekvizitləri (İstədiyiniz bank hesabı və İBAN)
   - Xalis məbləğ, 18% ƏDV və Yekun məbləğ
   - Məbləğin Azərbaycan dilində sözlə yazılışı
   - Direktor, Baş Mühasib imzaları və **M.Y. (Möhür yeri)**
@@ -144,6 +146,33 @@ Birbaşa menyudan real vaxt rejimində hesabatlar formalaşır:
 
 ---
 
+## ⚙️ Peşəkar Konfiqurasiya (.env Faylı)
+
+Sistem bütün parametrlərini `.env` faylından oxuyur. Layihədə hazır `.env.example` nümunəsi mövcuddur.
+
+### Əsas Konfiqurasiya Sahələri:
+| Parametr | Standart Dəyər | Təsvir |
+|---|---|---|
+| `SITE_NAME` | `frontend` | ERPNext sayt adı |
+| `HTTP_PORT` | `8080` | Veb interfeysin açılacağı port (istəsəniz `80` və ya `8080` edin) |
+| `ADMIN_PASSWORD` | `admin` | ERPNext `Administrator` istifadəçisinin giriş şifrəsi |
+| `DB_ROOT_PASSWORD` | `admin` | **MariaDB 10.6 root verilənlər bazası şifrəsi** (istədiyiniz güclü şifrə) |
+| `DB_HOST` | `db` | MariaDB konteynerinin daxili host adı |
+| `DB_PORT` | `3306` | MariaDB portu |
+| `COMPANY_NAME` | `TEST MMC` | Şirkətinizin rəsmi adı (hesabatlarda və qaimələrdə çıxır) |
+| `COMPANY_ABBR` | `TM` | Şirkət abreviaturası (hesab kodlarının sonluğunda istifadə olunur) |
+| `COMPANY_TAX_ID` | `1300000001` | Şirkətin 10 rəqəmli rəsmi VÖEN nömrəsi |
+| `BANK_NAME` | `Bank Hesabı` | Şirkətinizin bank adı (qaimələrdə və köçürmələrdə çıxır) |
+| `BANK_IBAN` | *(boş)* | Bankın 28 simvollu İBAN hesabı (istəyə görə) |
+| `BANK_SWIFT` | *(boş)* | Bankın beynəlxalq SWIFT kodu (istəyə görə) |
+
+### 💡 Avtomatik Fallback (Boş Sahələrin Qorunması):
+- Əgər `.env` faylında hər hansı parametr boş buraxılarsa və ya qeyd olunmazsa, **1-komanda ilə quraşdırma skripti dayanmır**!
+- Skript avtomatik olaraq təmiz, sazlanmış və işlək standart dəyərləri (`admin`, `8080`, `Bank Hesabı` və s.) tətbiq edir.
+- İstənilən vaxt `.env` faylını açıb parametrləri redaktə edə bilərsiniz.
+
+---
+
 ## 🛠️ Əlavə Köməkçi Skriptlər
 
 | Skript | Təsvir |
@@ -152,17 +181,27 @@ Birbaşa menyudan real vaxt rejimində hesabatlar formalaşır:
 | `./test_flow.sh` | Bütün alış, satış, anbar və kassa dövriyyəsini avtomatik icra edib Baş Kitab (GL) balansını yoxlayır. |
 | `./clean.sh` | Test dövriyyəsindən sonra yaranan test fakturalarını və məhsullarını təmizləyib bazanı sıfır vəziyyətinə qaytarır. |
 
-Sistemi idarə etmək üçün Docker əmrləri:
+### Sistemi İdarə Etmək:
 ```bash
-# Arxa planda işə salmaq
+# Arxa planda işə salmaq:
 docker compose up -d
 
-# Dayandırmaq
+# Sistemi müvəqqəti dayandırmaq:
+docker compose stop
+
+# Konteynerləri dayandırmaq (məlumatlar bazada qalır):
 docker compose down
 
-# Loqlara baxmaq
+# Loqlara canlı baxmaq:
 docker compose logs -f backend
 ```
+
+### 🗑️ Sistemi Kompüterdən Tamamilə Silmək:
+Əgər ERPNext sistemini və bütün verilənlər bazasını kompüterdən tamamilə təmizləmək istəsəniz:
+```bash
+docker compose down -v
+```
+*(Bu əmr bütün konteynerləri, şəbəkəni və daxili MariaDB həcmlərini kompüterdən tamamilə silir).*
 
 ---
 

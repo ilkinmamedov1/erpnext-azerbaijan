@@ -9,7 +9,7 @@ Automates:
 5. Tax templates (ƏDV 18%, 0%, Azad, Əvəzləşdirilən)
 6. Warehouses (Bütün Anbarlar, Əsas Anbar, Hazır Məhsul, Xammal, Bitməmiş İstehsalat, Tranzit)
 7. Modes of Payment (Nağd, Bank köçürməsi, POS-Terminal, ƏDV Depozit)
-8. Bank and Bank Account (Kapital Bank ASC, IBAN)
+8. Bank and Bank Account (Configurable from .env or defaults)
 9. Units of Measure (Ədəd, Qutu, Dəst, Paçka, Rulon, Qram, Ton)
 10. Property Setters (VÖEN label & Naming Series SQ-, AQ-, SS-, AS-, TQ-, MQ-, ÖD-, MƏ-)
 11. Central Bank (CBAR) reference exchange rates
@@ -29,9 +29,9 @@ def run():
     company_name = os.environ.get("COMPANY_NAME", "TEST MMC")
     company_abbr = os.environ.get("COMPANY_ABBR", "TM")
     company_tax_id = os.environ.get("COMPANY_TAX_ID", "1300000001")
-    bank_name = os.environ.get("BANK_NAME", "Kapital Bank ASC")
-    bank_swift = os.environ.get("BANK_SWIFT", "AIIBAZ2X")
-    bank_iban = os.environ.get("BANK_IBAN", "AZ43AIIB38010019440026214101")
+    bank_name = os.environ.get("BANK_NAME", "Bank Hesabı") or "Bank Hesabı"
+    bank_swift = os.environ.get("BANK_SWIFT", "") or ""
+    bank_iban = os.environ.get("BANK_IBAN", "") or ""
     
     # Locate CSV file
     csv_candidates = [
@@ -340,8 +340,7 @@ def run():
             "company": company_name,
             "is_company_account": 1,
             "is_default": 1,
-            "iban": bank_iban,
-            "branch_code": "200178"
+            "iban": bank_iban
         }).insert(ignore_permissions=True)
     frappe.db.commit()
     print(f"   Bank {bank_name} and IBAN {bank_iban} linked to 223.01.")
@@ -624,9 +623,11 @@ def run():
         <div style="flex: 1; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px;">
             <div style="font-weight: 700; color: #0f766e; border-bottom: 1px solid #cbd5e1; padding-bottom: 4px; margin-bottom: 8px; font-size: 12px; text-transform: uppercase;">Bank Rekvizitləri</div>
             <div style="font-size: 12px; line-height: 1.6;">
-                <div><strong>Bank:</strong> """ + bank_name + """</div>
-                <div><strong>SWIFT:</strong> """ + bank_swift + """</div>
-                <div><strong>İBAN:</strong> """ + bank_iban + """</div>
+                {% set ba = frappe.db.get_value("Bank Account", {"company": doc.company, "is_default": 1}, ["bank", "iban"], as_dict=True) %}
+                <div><strong>Bank:</strong> {{ ba.bank if ba and ba.bank else "Bank Hesabı" }}</div>
+                {% if ba and ba.iban %}
+                <div><strong>İBAN:</strong> {{ ba.iban }}</div>
+                {% endif %}
                 <div><strong>Hesablaşma hesabı:</strong> 223.01</div>
             </div>
         </div>

@@ -69,29 +69,43 @@ if [ -t 0 ]; then
     read -p "🔑 Administrator şifrəsi [cari: ${ADMIN_PASSWORD:-admin}]: " INPUT_PW
     ADMIN_PASSWORD=${INPUT_PW:-${ADMIN_PASSWORD:-admin}}
 
-    read -p "🏦 Bank adı [cari: ${BANK_NAME:-Kapital Bank ASC}]: " INPUT_BANK
-    BANK_NAME=${INPUT_BANK:-${BANK_NAME:-Kapital Bank ASC}}
+    read -p "🔐 Verilənlər bazası (MariaDB root) şifrəsi [cari: ${DB_ROOT_PASSWORD:-admin}]: " INPUT_DB_PW
+    DB_ROOT_PASSWORD=${INPUT_DB_PW:-${DB_ROOT_PASSWORD:-admin}}
 
-    read -p "💳 Bank İBAN [cari: ${BANK_IBAN:-AZ43AIIB38010019440026214101}]: " INPUT_IBAN
-    BANK_IBAN=${INPUT_IBAN:-${BANK_IBAN:-AZ43AIIB38010019440026214101}}
+    read -p "🏦 Bank adı [cari: ${BANK_NAME:-Bank Hesabı}]: " INPUT_BANK
+    BANK_NAME=${INPUT_BANK:-${BANK_NAME:-Bank Hesabı}}
+
+    read -p "💳 Bank İBAN (istəyə görə) [cari: ${BANK_IBAN:-}]: " INPUT_IBAN
+    BANK_IBAN=${INPUT_IBAN:-${BANK_IBAN:-}}
+
+    read -p "🌐 Bank SWIFT (istəyə görə) [cari: ${BANK_SWIFT:-}]: " INPUT_SWIFT
+    BANK_SWIFT=${INPUT_SWIFT:-${BANK_SWIFT:-}}
 
     # .env faylını yenilə
     cat << EOF > .env
-# =================================================================
-# ERPNext Azərbaycan - Konfiqurasiya Faylı (.env)
-# =================================================================
+# ==============================================================================
+# 🇦🇿 ERPNext Azərbaycan - Konfiqurasiya Parametrləri (.env)
+# ==============================================================================
 SITE_NAME=${SITE_NAME:-frontend}
 HTTP_PORT=${HTTP_PORT}
 ADMIN_PASSWORD=${ADMIN_PASSWORD}
-DB_ROOT_PASSWORD=${DB_ROOT_PASSWORD:-admin}
+
+DB_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+DB_HOST=${DB_HOST:-db}
+DB_PORT=${DB_PORT:-3306}
 
 COMPANY_NAME=${COMPANY_NAME}
 COMPANY_ABBR=${COMPANY_ABBR}
 COMPANY_TAX_ID=${COMPANY_TAX_ID}
+COMPANY_DOMAIN=${COMPANY_DOMAIN:-Distribution}
 
 BANK_NAME=${BANK_NAME}
-BANK_SWIFT=${BANK_SWIFT:-AIIBAZ2X}
+BANK_SWIFT=${BANK_SWIFT}
 BANK_IBAN=${BANK_IBAN}
+
+DEFAULT_CURRENCY=AZN
+TIMEZONE=Asia/Baku
+COUNTRY=Azerbaijan
 EOF
 fi
 

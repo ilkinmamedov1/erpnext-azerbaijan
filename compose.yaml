@@ -71,9 +71,9 @@ services:
       COMPANY_NAME: ${COMPANY_NAME:-TEST MMC}
       COMPANY_ABBR: ${COMPANY_ABBR:-TM}
       COMPANY_TAX_ID: ${COMPANY_TAX_ID:-1300000001}
-      BANK_NAME: ${BANK_NAME:-Kapital Bank ASC}
-      BANK_SWIFT: ${BANK_SWIFT:-AIIBAZ2X}
-      BANK_IBAN: ${BANK_IBAN:-AZ43AIIB38010019440026214101}
+      BANK_NAME: ${BANK_NAME:-Bank Hesabı}
+      BANK_SWIFT: ${BANK_SWIFT:-}
+      BANK_IBAN: ${BANK_IBAN:-}
       COA_CSV_PATH: /data/azerbaijan_coa.csv
     entrypoint:
       - bash
