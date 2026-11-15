@@ -1,0 +1,22 @@
+# Environment
+.env
+
+# Runtime data & logs
+sites/
+logs/
+db-data/
+redis-queue-data/
+*.log
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Editor & OS files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store

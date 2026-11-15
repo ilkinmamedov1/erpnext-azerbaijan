@@ -1,0 +1,427 @@
+Account Name,Parent Account,Account Number,Parent Account Number,Is Group,Account Type,Root Type,Account Currency,Şirket,ID,Ana Hesap (ERPNext),Kapat,Report Type,Vergi Oranı,Dondur,Bakiye Türü,Eski Üst Öğe,Brüt Dahil,Hesap Türü
+UZUNMÜDDƏTLİ AKTİVLƏR,,1,,1,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+QISAMÜDDƏTLİ AKTİVLƏR,,2,,1,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+KAPİTAL,,3,,1,,Equity,AZN,,,,0,Balance Sheet,0,No,,,0,
+UZUNMÜDDƏTLİ ÖHDƏLİKLƏR,,4,,1,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+QISAMÜDDƏTLİ ÖHDƏLİKLƏR,,5,,1,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+GƏLİRLƏR,,6,,1,,Income,AZN,,,,0,Profit and Loss,0,No,,,0,
+XƏRCLƏR,,7,,1,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+MƏNFƏƏT VERGİSİ,,9,,1,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Qeyri-maddi aktivlər,UZUNMÜDDƏTLİ AKTİVLƏR,10,1,1,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Qeyri-maddi aktivlərin dəyəri,Qeyri-maddi aktivlər,101,10,1,Fixed Asset,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Fixed Asset
+Patentlər,Qeyri-maddi aktivlərin dəyəri,101.01,101,0,Fixed Asset,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Fixed Asset
+Lisenziyalar,Qeyri-maddi aktivlərin dəyəri,101.02,101,0,Fixed Asset,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Fixed Asset
+Ticarət nişanları,Qeyri-maddi aktivlərin dəyəri,101.03,101,0,Fixed Asset,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Fixed Asset
+Proqram təminatı,Qeyri-maddi aktivlərin dəyəri,101.04,101,0,Fixed Asset,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Fixed Asset
+Müştəri bazası,Qeyri-maddi aktivlərin dəyəri,101.05,101,0,Fixed Asset,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Fixed Asset
+Franchayzinq hüquqları,Qeyri-maddi aktivlərin dəyəri,101.06,101,0,Fixed Asset,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Fixed Asset
+Digər qeyri-maddi aktivlər,Qeyri-maddi aktivlərin dəyəri,101.07,101,0,Fixed Asset,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Fixed Asset
+QMA üzrə yığılmış amortizasiya,Qeyri-maddi aktivlər,102,10,1,Depreciation,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Depreciation
+Patentlər üzrə amortizasiya,QMA üzrə yığılmış amortizasiya,102.01,102,0,Depreciation,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Depreciation
+Lisenziyalar üzrə amortizasiya,QMA üzrə yığılmış amortizasiya,102.02,102,0,Depreciation,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Depreciation
+Ticarət nişanları üzrə amortizasiya,QMA üzrə yığılmış amortizasiya,102.03,102,0,Depreciation,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Depreciation
+Proqram təminatı üzrə amortizasiya,QMA üzrə yığılmış amortizasiya,102.04,102,0,Depreciation,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Depreciation
+Digər QMA üzrə amortizasiya,QMA üzrə yığılmış amortizasiya,102.05,102,0,Depreciation,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Depreciation
+QMA ilə bağlı məsrəflərin kapitallaşdırılması,Qeyri-maddi aktivlər,103,10,0,Fixed Asset,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Fixed Asset
+"Torpaq, tikili və avadanlıqlar",UZUNMÜDDƏTLİ AKTİVLƏR,11,1,1,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+"Torpaq, tikili və avadanlıqların dəyəri","Torpaq, tikili və avadanlıqlar",111,11,1,Fixed Asset,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Fixed Asset
+Torpaq,"Torpaq, tikili və avadanlıqların dəyəri",111.01,111,0,Fixed Asset,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Fixed Asset
+Binalar,"Torpaq, tikili və avadanlıqların dəyəri",111.02,111,0,Fixed Asset,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Fixed Asset
+Tikililər və köməkçi qurğular,"Torpaq, tikili və avadanlıqların dəyəri",111.03,111,0,Fixed Asset,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Fixed Asset
+Maşın və avadanlıqlar,"Torpaq, tikili və avadanlıqların dəyəri",111.04,111,0,Fixed Asset,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Fixed Asset
+Nəqliyyat vasitələri,"Torpaq, tikili və avadanlıqların dəyəri",111.05,111,0,Fixed Asset,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Fixed Asset
+İş alətləri və inventar,"Torpaq, tikili və avadanlıqların dəyəri",111.06,111,0,Fixed Asset,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Fixed Asset
+Kompüter avadanlıqları,"Torpaq, tikili və avadanlıqların dəyəri",111.07,111,0,Fixed Asset,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Fixed Asset
+Digər əsas vəsaitlər,"Torpaq, tikili və avadanlıqların dəyəri",111.08,111,0,Fixed Asset,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Fixed Asset
+TTA üzrə yığılmış amortizasiya,"Torpaq, tikili və avadanlıqlar",112,11,1,Depreciation,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Depreciation
+Binalar üzrə amortizasiya,TTA üzrə yığılmış amortizasiya,112.01,112,0,Depreciation,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Depreciation
+Tikililər üzrə amortizasiya,TTA üzrə yığılmış amortizasiya,112.02,112,0,Depreciation,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Depreciation
+Maşın və avadanlıqlar üzrə amortizasiya,TTA üzrə yığılmış amortizasiya,112.03,112,0,Depreciation,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Depreciation
+Nəqliyyat vasitələri üzrə amortizasiya,TTA üzrə yığılmış amortizasiya,112.04,112,0,Depreciation,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Depreciation
+Kompüter avadanlıqları üzrə amortizasiya,TTA üzrə yığılmış amortizasiya,112.05,112,0,Depreciation,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Depreciation
+Digər TTA üzrə amortizasiya,TTA üzrə yığılmış amortizasiya,112.06,112,0,Depreciation,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Depreciation
+TTA ilə bağlı məsrəflərin kapitallaşdırılması,"Torpaq, tikili və avadanlıqlar",113,11,0,Fixed Asset,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Fixed Asset
+İnvestisiya mülkiyyəti,UZUNMÜDDƏTLİ AKTİVLƏR,12,1,1,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+İnvestisiya mülkiyyətinin dəyəri,İnvestisiya mülkiyyəti,121,12,1,Fixed Asset,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Fixed Asset
+İnvestisiya torpaqları,İnvestisiya mülkiyyətinin dəyəri,121.01,121,0,Fixed Asset,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Fixed Asset
+İnvestisiya binaları,İnvestisiya mülkiyyətinin dəyəri,121.02,121,0,Fixed Asset,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Fixed Asset
+İnvestisiya mülkiyyəti üzrə amortizasiya,İnvestisiya mülkiyyəti,122,12,0,Depreciation,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Depreciation
+İnvestisiya mülkiyyəti məsrəflərinin kapitallaşdırılması,İnvestisiya mülkiyyəti,123,12,0,Fixed Asset,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Fixed Asset
+Bioloji aktivlər,UZUNMÜDDƏTLİ AKTİVLƏR,13,1,1,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Bioloji aktivlərin dəyəri,Bioloji aktivlər,131,13,1,Fixed Asset,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Fixed Asset
+Bitki formasında bioloji aktivlər,Bioloji aktivlərin dəyəri,131.01,131,0,Fixed Asset,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Fixed Asset
+Heyvan formasında bioloji aktivlər,Bioloji aktivlərin dəyəri,131.02,131,0,Fixed Asset,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Fixed Asset
+Bioloji aktivlər üzrə amortizasiya,Bioloji aktivlər,132,13,0,Depreciation,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Depreciation
+Təbii sərvətlər,UZUNMÜDDƏTLİ AKTİVLƏR,14,1,1,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Təbii sərvətlərin dəyəri,Təbii sərvətlər,141,14,1,Fixed Asset,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Fixed Asset
+Meşə ehtiyatları,Təbii sərvətlərin dəyəri,141.01,141,0,Fixed Asset,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Fixed Asset
+Faydalı qazıntı ehtiyatları,Təbii sərvətlərin dəyəri,141.02,141,0,Fixed Asset,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Fixed Asset
+Təbii sərvətlərin tükənməsi,Təbii sərvətlər,142,14,0,Depreciation,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Depreciation
+İştirak payı metodu ilə investisiyalar,UZUNMÜDDƏTLİ AKTİVLƏR,15,1,1,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Asılı müəssisələrə investisiyalar,İştirak payı metodu ilə investisiyalar,151,15,1,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Asılı müəssisə 1,Asılı müəssisələrə investisiyalar,151.01,151,0,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Asılı müəssisə 2,Asılı müəssisələrə investisiyalar,151.02,151,0,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Birgə müəssisələrə investisiyalar,İştirak payı metodu ilə investisiyalar,152,15,1,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Birgə müəssisə 1,Birgə müəssisələrə investisiyalar,152.01,152,0,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Dəyər azalmasına görə düzəlişlər,İştirak payı metodu ilə investisiyalar,153,15,0,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Təxirə salınmış vergi aktivləri,UZUNMÜDDƏTLİ AKTİVLƏR,16,1,1,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Mənfəət vergisi üzrə TSA,Təxirə salınmış vergi aktivləri,161,16,0,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Digər TSA,Təxirə salınmış vergi aktivləri,162,16,0,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Uzunmüddətli debitor borcları,UZUNMÜDDƏTLİ AKTİVLƏR,17,1,1,Receivable,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Receivable
+Alıcıların uzunmüddətli debitor borcları,Uzunmüddətli debitor borcları,171,17,1,Receivable,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Receivable
+Alıcılar - uzunmüddətli (yerli),Alıcıların uzunmüddətli debitor borcları,171.01,171,0,Receivable,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Receivable
+Alıcılar - uzunmüddətli (xarici),Alıcıların uzunmüddətli debitor borcları,171.02,171,0,Receivable,Asset,USD,,,,0,Balance Sheet,0,No,,,0,Receivable
+Törəmə müəssisələrin uzunmüddətli debitorları,Uzunmüddətli debitor borcları,172,17,0,Receivable,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Receivable
+İdarəetmə heyətinin uzunmüddətli debitorları,Uzunmüddətli debitor borcları,173,17,0,Receivable,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Receivable
+İcarə üzrə uzunmüddətli debitorlar,Uzunmüddətli debitor borcları,174,17,0,Receivable,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Receivable
+Tikinti müqavilələri üzrə uzunmüddətli debitorlar,Uzunmüddətli debitor borcları,175,17,0,Receivable,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Receivable
+Faizlər üzrə uzunmüddətli debitorlar,Uzunmüddətli debitor borcları,176,17,0,Receivable,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Receivable
+Digər uzunmüddətli debitor borcları,Uzunmüddətli debitor borcları,177,17,0,Receivable,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Receivable
+Sair uzunmüddətli maliyyə aktivləri,UZUNMÜDDƏTLİ AKTİVLƏR,18,1,1,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Ödənişə qədər saxlanılan investisiyalar (uzunm.),Sair uzunmüddətli maliyyə aktivləri,181,18,1,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Dövlət istiqrazları (uzunm.),Ödənişə qədər saxlanılan investisiyalar (uzunm.),181.01,181,0,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Korporativ istiqrazlar (uzunm.),Ödənişə qədər saxlanılan investisiyalar (uzunm.),181.02,181,0,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Verilmiş uzunmüddətli borclar,Sair uzunmüddətli maliyyə aktivləri,182,18,1,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+İşçilərə verilmiş uzunmüddətli borclar,Verilmiş uzunmüddətli borclar,182.01,182,0,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Digər şəxslərə verilmiş uzunmüddətli borclar,Verilmiş uzunmüddətli borclar,182.02,182,0,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Digər uzunmüddətli investisiyalar,Sair uzunmüddətli maliyyə aktivləri,183,18,0,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Uzunmüddətli maliyyə aktivlərinin dəyər düzəlişi,Sair uzunmüddətli maliyyə aktivləri,184,18,0,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Sair uzunmüddətli aktivlər,UZUNMÜDDƏTLİ AKTİVLƏR,19,1,1,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Gələcək dövrlərin xərcləri (uzunm.),Sair uzunmüddətli aktivlər,191,19,0,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Verilmiş uzunmüddətli avanslar,Sair uzunmüddətli aktivlər,192,19,1,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Malsatanlara verilmiş uzunmüddətli avanslar,Verilmiş uzunmüddətli avanslar,192.01,192,0,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+TTA alınması üçün verilmiş uzunmüddətli avanslar,Verilmiş uzunmüddətli avanslar,192.02,192,0,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Digər uzunmüddətli aktivlər,Sair uzunmüddətli aktivlər,193,19,0,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Aktivlərdən istifadə hüququ (dəyər),Sair uzunmüddətli aktivlər,194,19,0,Fixed Asset,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Fixed Asset
+Aktivlərdən istifadə hüququ (amortizasiya),Sair uzunmüddətli aktivlər,195,19,0,Depreciation,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Depreciation
+Ehtiyatlar,QISAMÜDDƏTLİ AKTİVLƏR,20,2,1,Stock,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Stock
+Material ehtiyatları,Ehtiyatlar,201,20,1,Stock,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Stock
+Xammal,Material ehtiyatları,201.01,201,1,Stock,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Stock
+Xammal - yerli,Xammal,201.01.01,201.01,0,Stock,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Stock
+Xammal - idxal,Xammal,201.01.02,201.01,0,Stock,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Stock
+Əsas materiallar,Material ehtiyatları,201.02,201,1,Stock,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Stock
+Əsas materiallar - yerli,Əsas materiallar,201.02.01,201.02,0,Stock,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Stock
+Əsas materiallar - idxal,Əsas materiallar,201.02.02,201.02,0,Stock,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Stock
+Köməkçi materiallar,Material ehtiyatları,201.03,201,0,Stock,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Stock
+Yanacaq,Material ehtiyatları,201.04,201,0,Stock,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Stock
+Ehtiyat hissələri,Material ehtiyatları,201.05,201,0,Stock,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Stock
+Qablaşdırma materialları,Material ehtiyatları,201.06,201,0,Stock,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Stock
+Tikinti materialları,Material ehtiyatları,201.07,201,0,Stock,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Stock
+Digər materiallar,Material ehtiyatları,201.08,201,0,Stock,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Stock
+İstehsalat məsrəfləri (bitməmiş ist.),Ehtiyatlar,202,20,1,Stock,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Stock
+Bitməmiş istehsalat - əsas,İstehsalat məsrəfləri (bitməmiş ist.),202.01,202,0,Stock,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Stock
+Bitməmiş istehsalat - köməkçi,İstehsalat məsrəfləri (bitməmiş ist.),202.02,202,0,Stock,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Stock
+Xidmət üzrə bitməmiş işlər,İstehsalat məsrəfləri (bitməmiş ist.),202.03,202,0,Stock,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Stock
+Tikinti müqavilələri üzrə məsrəflər,Ehtiyatlar,203,20,0,Stock,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Stock
+Hazır məhsul,Ehtiyatlar,204,20,1,Stock,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Stock
+Hazır məhsul - anbar 1,Hazır məhsul,204.01,204,0,Stock,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Stock
+Hazır məhsul - anbar 2,Hazır məhsul,204.02,204,0,Stock,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Stock
+Konsignasiyaya verilmiş hazır məhsul,Hazır məhsul,204.03,204,0,Stock,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Stock
+Mallar,Ehtiyatlar,205,20,1,Stock,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Stock
+Mallar - anbar,Mallar,205.01,205,0,Stock,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Stock
+Mallar - pərakəndə satış nöqtəsi,Mallar,205.02,205,0,Stock,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Stock
+Mallar - konsignasiyada,Mallar,205.03,205,0,Stock,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Stock
+Mallar - yolda,Mallar,205.04,205,0,Stock,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Stock
+Satış məqsədi ilə saxlanılan digər aktivlər,Ehtiyatlar,206,20,0,Stock,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Stock
+Digər ehtiyatlar,Ehtiyatlar,207,20,0,Stock,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Stock
+Ehtiyatların dəyər düzəlişi,Ehtiyatlar,208,20,0,Stock Adjustment,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Stock Adjustment
+Qısamüddətli debitor borcları,QISAMÜDDƏTLİ AKTİVLƏR,21,2,1,Receivable,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Receivable
+Alıcıların qısamüddətli debitor borcları,Qısamüddətli debitor borcları,211,21,1,Receivable,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Receivable
+Yerli alıcılar,Alıcıların qısamüddətli debitor borcları,211.01,211,1,Receivable,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Receivable
+Yerli alıcılar - hüquqi şəxslər,Yerli alıcılar,211.01.01,211.01,0,Receivable,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Receivable
+Yerli alıcılar - fiziki şəxslər,Yerli alıcılar,211.01.02,211.01,0,Receivable,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Receivable
+Xarici alıcılar (USD),Alıcıların qısamüddətli debitor borcları,211.02,211,0,Receivable,Asset,USD,,,,0,Balance Sheet,0,No,,,0,Receivable
+Xarici alıcılar (EUR),Alıcıların qısamüddətli debitor borcları,211.03,211,0,Receivable,Asset,EUR,,,,0,Balance Sheet,0,No,,,0,Receivable
+Xarici alıcılar (digər valyuta),Alıcıların qısamüddətli debitor borcları,211.04,211,0,Receivable,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Receivable
+Törəmə müəssisələrin qısamüddətli debitorları,Qısamüddətli debitor borcları,212,21,0,Receivable,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Receivable
+İdarəetmə heyətinin qısamüddətli debitorları,Qısamüddətli debitor borcları,213,21,0,Receivable,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Receivable
+İcarə üzrə qısamüddətli debitorlar,Qısamüddətli debitor borcları,214,21,0,Receivable,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Receivable
+Tikinti müqavilələri üzrə qısamüddətli debitorlar,Qısamüddətli debitor borcları,215,21,0,Receivable,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Receivable
+Faizlər üzrə qısamüddətli debitorlar,Qısamüddətli debitor borcları,216,21,0,Receivable,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Receivable
+Digər qısamüddətli debitor borcları,Qısamüddətli debitor borcları,217,21,1,Receivable,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Receivable
+İşçilərə verilmiş avanslar,Digər qısamüddətli debitor borcları,217.01,217,0,Receivable,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Receivable
+Vergi üzrə artıq ödəmələr (ƏDV əvəzləşmə),Digər qısamüddətli debitor borcları,217.02,217,0,Receivable,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Receivable
+Vergi üzrə artıq ödəmələr (mənfəət vergisi),Digər qısamüddətli debitor borcları,217.03,217,0,Receivable,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Receivable
+Sığorta tələbləri,Digər qısamüddətli debitor borcları,217.04,217,0,Receivable,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Receivable
+Digər debitorlar,Digər qısamüddətli debitor borcları,217.05,217,0,Receivable,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Receivable
+Şübhəli borclar üzrə düzəlişlər,Qısamüddətli debitor borcları,218,21,0,Receivable,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Receivable
+Pul vəsaitləri və onların ekvivalentləri,QISAMÜDDƏTLİ AKTİVLƏR,22,2,1,Cash,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Cash
+Kassa,Pul vəsaitləri və onların ekvivalentləri,221,22,1,Cash,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Cash
+Kassa - AZN,Kassa,221.01,221,0,Cash,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Cash
+Kassa - USD,Kassa,221.02,221,0,Cash,Asset,USD,,,,0,Balance Sheet,0,No,,,0,Cash
+Kassa - EUR,Kassa,221.03,221,0,Cash,Asset,EUR,,,,0,Balance Sheet,0,No,,,0,Cash
+Kassa - GBP,Kassa,221.04,221,0,Cash,Asset,GBP,,,,0,Balance Sheet,0,No,,,0,Cash
+Kassa - RUB,Kassa,221.05,221,0,Cash,Asset,RUB,,,,0,Balance Sheet,0,No,,,0,Cash
+Yolda olan pul köçürmələri,Pul vəsaitləri və onların ekvivalentləri,222,22,1,Cash,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Cash
+Yolda olan köçürmələr - AZN,Yolda olan pul köçürmələri,222.01,222,0,Cash,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Cash
+Yolda olan köçürmələr - valyuta,Yolda olan pul köçürmələri,222.02,222,0,Cash,Asset,USD,,,,0,Balance Sheet,0,No,,,0,Cash
+Bank hesablaşma hesabları,Pul vəsaitləri və onların ekvivalentləri,223,22,1,Bank,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Bank
+Bank hesabı - AZN (Əsas bank),Bank hesablaşma hesabları,223.01,223,0,Bank,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Bank
+Bank hesabı - USD (Əsas bank),Bank hesablaşma hesabları,223.02,223,0,Bank,Asset,USD,,,,0,Balance Sheet,0,No,,,0,Bank
+Bank hesabı - EUR (Əsas bank),Bank hesablaşma hesabları,223.03,223,0,Bank,Asset,EUR,,,,0,Balance Sheet,0,No,,,0,Bank
+Bank hesabı - AZN (Bank 2),Bank hesablaşma hesabları,223.04,223,0,Bank,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Bank
+Bank hesabı - USD (Bank 2),Bank hesablaşma hesabları,223.05,223,0,Bank,Asset,USD,,,,0,Balance Sheet,0,No,,,0,Bank
+Tələblərə əsasən açılan digər bank hesabları,Pul vəsaitləri və onların ekvivalentləri,224,22,1,Bank,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Bank
+Akkreditiv hesabı,Tələblərə əsasən açılan digər bank hesabları,224.01,224,0,Bank,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Bank
+Depozit hesabı (qısamüddətli),Tələblərə əsasən açılan digər bank hesabları,224.02,224,0,Bank,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Bank
+Xüsusi məqsədli bank hesabı,Tələblərə əsasən açılan digər bank hesabları,224.03,224,0,Bank,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Bank
+Pul vəsaitlərinin ekvivalentləri,Pul vəsaitləri və onların ekvivalentləri,225,22,0,Cash,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Cash
+ƏDV sub-uçot hesabı,Pul vəsaitləri və onların ekvivalentləri,226,22,0,Cash,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,Cash
+Sair qısamüddətli maliyyə aktivləri,QISAMÜDDƏTLİ AKTİVLƏR,23,2,1,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Satış məqsədli qısamüddətli investisiyalar,Sair qısamüddətli maliyyə aktivləri,231,23,1,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Səhmlər (satış üçün),Satış məqsədli qısamüddətli investisiyalar,231.01,231,0,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+İstiqrazlar (satış üçün),Satış məqsədli qısamüddətli investisiyalar,231.02,231,0,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Ödənişə qədər saxlanılan qısamüddətli investisiyalar,Sair qısamüddətli maliyyə aktivləri,232,23,0,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Verilmiş qısamüddətli borclar,Sair qısamüddətli maliyyə aktivləri,233,23,1,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+İşçilərə verilmiş qısamüddətli borclar,Verilmiş qısamüddətli borclar,233.01,233,0,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Digər şəxslərə verilmiş qısamüddətli borclar,Verilmiş qısamüddətli borclar,233.02,233,0,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Digər qısamüddətli investisiyalar,Sair qısamüddətli maliyyə aktivləri,234,23,0,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Qısamüddətli maliyyə aktivlərinin dəyər düzəlişi,Sair qısamüddətli maliyyə aktivləri,235,23,0,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Sair qısamüddətli aktivlər,QISAMÜDDƏTLİ AKTİVLƏR,24,2,1,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Əvəzləşdirilən vergilər (ƏDV),Sair qısamüddətli aktivlər,241,24,1,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+ƏDV əvəzləşməsi - yerli alışlar,Əvəzləşdirilən vergilər (ƏDV),241.01,241,0,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+ƏDV əvəzləşməsi - idxal,Əvəzləşdirilən vergilər (ƏDV),241.02,241,0,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Gələcək dövrün xərcləri (qısamüddətli),Sair qısamüddətli aktivlər,242,24,1,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Ödənilmiş sığorta (gələcək dövr),Gələcək dövrün xərcləri (qısamüddətli),242.01,242,0,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Ödənilmiş icarə (gələcək dövr),Gələcək dövrün xərcləri (qısamüddətli),242.02,242,0,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Digər gələcək dövr xərcləri,Gələcək dövrün xərcləri (qısamüddətli),242.03,242,0,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Verilmiş qısamüddətli avanslar,Sair qısamüddətli aktivlər,243,24,1,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Malsatanlara verilmiş avanslar,Verilmiş qısamüddətli avanslar,243.01,243,0,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Xidmət göstərənlərə verilmiş avanslar,Verilmiş qısamüddətli avanslar,243.02,243,0,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Tikintiyə verilmiş avanslar,Verilmiş qısamüddətli avanslar,243.03,243,0,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Təhtəlhesab məbləğlər,Sair qısamüddətli aktivlər,244,24,1,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+İşçilərə təhtəlhesab məbləğlər (ezamiyyə),Təhtəlhesab məbləğlər,244.01,244,0,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+İşçilərə təhtəlhesab məbləğlər (təsərrüfat),Təhtəlhesab məbləğlər,244.02,244,0,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Digər qısamüddətli aktivlər,Sair qısamüddətli aktivlər,245,24,0,,Asset,AZN,,,,0,Balance Sheet,0,No,,,0,
+Ödənilmiş nizamnamə kapitalı,KAPİTAL,30,3,1,,Equity,AZN,,,,0,Balance Sheet,0,No,,,0,
+Nizamnamə kapitalı,Ödənilmiş nizamnamə kapitalı,301,30,1,,Equity,AZN,,,,0,Balance Sheet,0,No,,,0,
+Adi səhmlər,Nizamnamə kapitalı,301.01,301,0,,Equity,AZN,,,,0,Balance Sheet,0,No,,,0,
+İmtiyazlı səhmlər,Nizamnamə kapitalı,301.02,301,0,,Equity,AZN,,,,0,Balance Sheet,0,No,,,0,
+Pay kapitala töhfələr,Nizamnamə kapitalı,301.03,301,0,,Equity,AZN,,,,0,Balance Sheet,0,No,,,0,
+Nizamnamə kapitalının ödənilməmiş hissəsi,Ödənilmiş nizamnamə kapitalı,302,30,0,,Equity,AZN,,,,0,Balance Sheet,0,No,,,0,
+Emissiya gəliri,KAPİTAL,31,3,1,,Equity,AZN,,,,0,Balance Sheet,0,No,,,0,
+Emissiya gəliri,Emissiya gəliri,311,31,0,,Equity,AZN,,,,0,Balance Sheet,0,No,,,0,
+Geri alınmış kapital,KAPİTAL,32,3,1,,Equity,AZN,,,,0,Balance Sheet,0,No,,,0,
+Geri alınmış səhmlər,Geri alınmış kapital,321,32,0,,Equity,AZN,,,,0,Balance Sheet,0,No,,,0,
+Kapital ehtiyatları,KAPİTAL,33,3,1,,Equity,AZN,,,,0,Balance Sheet,0,No,,,0,
+Yenidən qiymətləndirmə ehtiyatı,Kapital ehtiyatları,331,33,1,,Equity,AZN,,,,0,Balance Sheet,0,No,,,0,
+TTA yenidən qiymətləndirilməsi,Yenidən qiymətləndirmə ehtiyatı,331.01,331,0,,Equity,AZN,,,,0,Balance Sheet,0,No,,,0,
+QMA yenidən qiymətləndirilməsi,Yenidən qiymətləndirmə ehtiyatı,331.02,331,0,,Equity,AZN,,,,0,Balance Sheet,0,No,,,0,
+Məzənnə fərqləri üzrə ehtiyat,Kapital ehtiyatları,332,33,0,,Equity,AZN,,,,0,Balance Sheet,0,No,,,0,
+Qanunvericilik üzrə ehtiyat,Kapital ehtiyatları,333,33,0,,Equity,AZN,,,,0,Balance Sheet,0,No,,,0,
+Nizamnamə üzrə ehtiyat,Kapital ehtiyatları,334,33,0,,Equity,AZN,,,,0,Balance Sheet,0,No,,,0,
+Digər kapital ehtiyatları,Kapital ehtiyatları,335,33,0,,Equity,AZN,,,,0,Balance Sheet,0,No,,,0,
+Bölüşdürülməmiş mənfəət,KAPİTAL,34,3,1,,Equity,AZN,,,,0,Balance Sheet,0,No,,,0,
+Hesabat dövründə xalis mənfəət (zərər),Bölüşdürülməmiş mənfəət,341,34,0,,Equity,AZN,,,,0,Balance Sheet,0,No,,,0,
+Mühasibat siyasəti dəyişiklikləri üzrə düzəliş,Bölüşdürülməmiş mənfəət,342,34,0,,Equity,AZN,,,,0,Balance Sheet,0,No,,,0,
+Keçmiş illər üzrə bölüşdürülməmiş mənfəət,Bölüşdürülməmiş mənfəət,343,34,0,,Equity,AZN,,,,0,Balance Sheet,0,No,,,0,
+Elan edilmiş dividendlər,Bölüşdürülməmiş mənfəət,344,34,0,,Equity,AZN,,,,0,Balance Sheet,0,No,,,0,
+Uzunmüddətli faiz xərcləri yaradan öhdəliklər,UZUNMÜDDƏTLİ ÖHDƏLİKLƏR,40,4,1,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Uzunmüddətli bank kreditləri,Uzunmüddətli faiz xərcləri yaradan öhdəliklər,401,40,1,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Uzunmüddətli kredit - AZN (Bank 1),Uzunmüddətli bank kreditləri,401.01,401,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Uzunmüddətli kredit - USD (Bank 1),Uzunmüddətli bank kreditləri,401.02,401,0,,Liability,USD,,,,0,Balance Sheet,0,No,,,0,
+Uzunmüddətli kredit - AZN (Bank 2),Uzunmüddətli bank kreditləri,401.03,401,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+İşçilər üçün uzunmüddətli bank kreditləri,Uzunmüddətli faiz xərcləri yaradan öhdəliklər,402,40,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Uzunmüddətli konvertasiya olunan istiqrazlar,Uzunmüddətli faiz xərcləri yaradan öhdəliklər,403,40,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Uzunmüddətli borclar,Uzunmüddətli faiz xərcləri yaradan öhdəliklər,404,40,1,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Uzunmüddətli borclar - hüquqi şəxslər,Uzunmüddətli borclar,404.01,404,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Uzunmüddətli borclar - təsisçilər,Uzunmüddətli borclar,404.02,404,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+İmtiyazlı səhmlər (uzunmüddətli),Uzunmüddətli faiz xərcləri yaradan öhdəliklər,405,40,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Maliyyə icarəsi üzrə uzunmüddətli öhdəliklər,Uzunmüddətli faiz xərcləri yaradan öhdəliklər,406,40,1,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Maliyyə icarəsi - avadanlıq,Maliyyə icarəsi üzrə uzunmüddətli öhdəliklər,406.01,406,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Maliyyə icarəsi - nəqliyyat,Maliyyə icarəsi üzrə uzunmüddətli öhdəliklər,406.02,406,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Törəmə müəssisələrə uzunmüddətli öhdəliklər,Uzunmüddətli faiz xərcləri yaradan öhdəliklər,407,40,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Digər uzunmüddətli faiz xərcli öhdəliklər,Uzunmüddətli faiz xərcləri yaradan öhdəliklər,408,40,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Uzunmüddətli qiymətləndirilmiş öhdəliklər,UZUNMÜDDƏTLİ ÖHDƏLİKLƏR,41,4,1,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+İşdən azad olma ilə bağlı uzunmüddətli öhdəliklər,Uzunmüddətli qiymətləndirilmiş öhdəliklər,411,41,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Uzunmüddətli zəmanət öhdəlikləri,Uzunmüddətli qiymətləndirilmiş öhdəliklər,412,41,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Uzunmüddətli hüquqi öhdəliklər,Uzunmüddətli qiymətləndirilmiş öhdəliklər,413,41,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Digər uzunmüddətli qiymətləndirilmiş öhdəliklər,Uzunmüddətli qiymətləndirilmiş öhdəliklər,414,41,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Təxirə salınmış vergi öhdəlikləri,UZUNMÜDDƏTLİ ÖHDƏLİKLƏR,42,4,1,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Mənfəət vergisi üzrə TSÖ,Təxirə salınmış vergi öhdəlikləri,421,42,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Digər TSÖ,Təxirə salınmış vergi öhdəlikləri,422,42,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Uzunmüddətli kreditor borcları,UZUNMÜDDƏTLİ ÖHDƏLİKLƏR,43,4,1,Payable,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,Payable
+Malsatanlara uzunmüddətli kreditor borcları,Uzunmüddətli kreditor borcları,431,43,0,Payable,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,Payable
+Törəmə müəssisələrə uzunmüddətli kreditor borcları,Uzunmüddətli kreditor borcları,432,43,0,Payable,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,Payable
+Tikinti müqavilələri üzrə uzunmüddətli kreditorlar,Uzunmüddətli kreditor borcları,433,43,0,Payable,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,Payable
+Faizlər üzrə uzunmüddətli kreditorlar,Uzunmüddətli kreditor borcları,434,43,0,Payable,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,Payable
+Digər uzunmüddətli kreditor borcları,Uzunmüddətli kreditor borcları,435,43,0,Payable,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,Payable
+Sair uzunmüddətli öhdəliklər,UZUNMÜDDƏTLİ ÖHDƏLİKLƏR,44,4,1,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Uzunmüddətli pensiya öhdəlikləri,Sair uzunmüddətli öhdəliklər,441,44,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Gələcək dövrlərin gəlirləri (uzunm.),Sair uzunmüddətli öhdəliklər,442,44,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Alınmış uzunmüddətli avanslar,Sair uzunmüddətli öhdəliklər,443,44,1,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Müştərilərdən alınan uzunmüddətli avanslar,Alınmış uzunmüddətli avanslar,443.01,443,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Digər uzunmüddətli avanslar,Alınmış uzunmüddətli avanslar,443.02,443,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Uzunmüddətli məqsədli maliyyələşmələr,Sair uzunmüddətli öhdəliklər,444,44,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Digər uzunmüddətli öhdəliklər,Sair uzunmüddətli öhdəliklər,445,44,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Qısamüddətli faiz xərcləri yaradan öhdəliklər,QISAMÜDDƏTLİ ÖHDƏLİKLƏR,50,5,1,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Qısamüddətli bank kreditləri,Qısamüddətli faiz xərcləri yaradan öhdəliklər,501,50,1,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Qısamüddətli kredit - AZN (Bank 1),Qısamüddətli bank kreditləri,501.01,501,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Qısamüddətli kredit - USD (Bank 1),Qısamüddətli bank kreditləri,501.02,501,0,,Liability,USD,,,,0,Balance Sheet,0,No,,,0,
+Bank overdraftı,Qısamüddətli bank kreditləri,501.03,501,0,Bank,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,Bank
+Uzunmüddətli kreditin cari hissəsi,Qısamüddətli bank kreditləri,501.04,501,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+İşçilər üçün qısamüddətli bank kreditləri,Qısamüddətli faiz xərcləri yaradan öhdəliklər,502,50,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Qısamüddətli konvertasiya olunan istiqrazlar,Qısamüddətli faiz xərcləri yaradan öhdəliklər,503,50,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Qısamüddətli borclar,Qısamüddətli faiz xərcləri yaradan öhdəliklər,504,50,1,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Qısamüddətli borclar - hüquqi şəxslər,Qısamüddətli borclar,504.01,504,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Qısamüddətli borclar - təsisçilər,Qısamüddətli borclar,504.02,504,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+İmtiyazlı səhmlər (qısamüddətli),Qısamüddətli faiz xərcləri yaradan öhdəliklər,505,50,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Törəmə müəssisələrə qısamüddətli öhdəliklər,Qısamüddətli faiz xərcləri yaradan öhdəliklər,506,50,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Digər qısamüddətli faiz xərcli öhdəliklər,Qısamüddətli faiz xərcləri yaradan öhdəliklər,507,50,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Qısamüddətli qiymətləndirilmiş öhdəliklər,QISAMÜDDƏTLİ ÖHDƏLİKLƏR,51,5,1,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+İşdən azad olma ilə bağlı qısamüddətli öhdəliklər,Qısamüddətli qiymətləndirilmiş öhdəliklər,511,51,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Qısamüddətli zəmanət öhdəlikləri,Qısamüddətli qiymətləndirilmiş öhdəliklər,512,51,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Qısamüddətli hüquqi öhdəliklər,Qısamüddətli qiymətləndirilmiş öhdəliklər,513,51,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Mənfəətdə iştirak planı və müavinət planları,Qısamüddətli qiymətləndirilmiş öhdəliklər,514,51,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Digər qısamüddətli qiymətləndirilmiş öhdəliklər,Qısamüddətli qiymətləndirilmiş öhdəliklər,515,51,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Vergi və məcburi ödənişlər üzrə öhdəliklər,QISAMÜDDƏTLİ ÖHDƏLİKLƏR,52,5,1,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Vergi öhdəlikləri,Vergi və məcburi ödənişlər üzrə öhdəliklər,521,52,1,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+ƏDV öhdəliyi,Vergi öhdəlikləri,521.01,521,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Mənfəət vergisi öhdəliyi (cari),Vergi öhdəlikləri,521.02,521,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Gəlir vergisi (PAYE - işçilərdən tutulmuş),Vergi öhdəlikləri,521.03,521,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Əmlak vergisi öhdəliyi,Vergi öhdəlikləri,521.04,521,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Torpaq vergisi öhdəliyi,Vergi öhdəlikləri,521.05,521,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Sadələşdirilmiş vergi öhdəliyi,Vergi öhdəlikləri,521.06,521,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Yol vergisi öhdəliyi,Vergi öhdəlikləri,521.07,521,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Digər vergi öhdəlikləri,Vergi öhdəlikləri,521.08,521,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Sosial sığorta üzrə öhdəliklər,Vergi və məcburi ödənişlər üzrə öhdəliklər,522,52,1,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+DSİF - işəgötürənin payı,Sosial sığorta üzrə öhdəliklər,522.01,522,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+DSİF - işçinin payı (tutulmuş),Sosial sığorta üzrə öhdəliklər,522.02,522,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+İşsizlikdən sığorta,Sosial sığorta üzrə öhdəliklər,522.03,522,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Digər məcburi ödənişlər,Vergi və məcburi ödənişlər üzrə öhdəliklər,523,52,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Qısamüddətli kreditor borcları,QISAMÜDDƏTLİ ÖHDƏLİKLƏR,53,5,1,Payable,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,Payable
+Malsatanlara qısamüddətli kreditor borcları,Qısamüddətli kreditor borcları,531,53,1,Payable,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,Payable
+Yerli malsatanlar,Malsatanlara qısamüddətli kreditor borcları,531.01,531,1,Payable,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,Payable
+Yerli malsatanlar - hüquqi şəxslər,Yerli malsatanlar,531.01.01,531.01,0,Payable,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,Payable
+Yerli malsatanlar - fiziki şəxslər,Yerli malsatanlar,531.01.02,531.01,0,Payable,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,Payable
+Xarici malsatanlar (USD),Malsatanlara qısamüddətli kreditor borcları,531.02,531,0,Payable,Liability,USD,,,,0,Balance Sheet,0,No,,,0,Payable
+Xarici malsatanlar (EUR),Malsatanlara qısamüddətli kreditor borcları,531.03,531,0,Payable,Liability,EUR,,,,0,Balance Sheet,0,No,,,0,Payable
+Xarici malsatanlar (digər valyuta),Malsatanlara qısamüddətli kreditor borcları,531.04,531,0,Payable,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,Payable
+Törəmə müəssisələrə qısamüddətli kreditorlar,Qısamüddətli kreditor borcları,532,53,0,Payable,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,Payable
+Əməyin ödənişi üzrə işçilərə borclar,Qısamüddətli kreditor borcları,533,53,1,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Əmək haqqı borcu,Əməyin ödənişi üzrə işçilərə borclar,533.01,533,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Məzuniyyət haqqı borcu,Əməyin ödənişi üzrə işçilərə borclar,533.02,533,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Mükafat borcu,Əməyin ödənişi üzrə işçilərə borclar,533.03,533,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Xəstəlik müavinəti,Əməyin ödənişi üzrə işçilərə borclar,533.04,533,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Dividendlər üzrə öhdəlik,Qısamüddətli kreditor borcları,534,53,1,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Yerli səhmdarlar - dividendlər,Dividendlər üzrə öhdəlik,534.01,534,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Xarici səhmdarlar - dividendlər,Dividendlər üzrə öhdəlik,534.02,534,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+İcarə üzrə qısamüddətli kreditorlar,Qısamüddətli kreditor borcları,535,53,0,Payable,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,Payable
+Tikinti müqavilələri üzrə qısamüddətli kreditorlar,Qısamüddətli kreditor borcları,536,53,0,Payable,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,Payable
+Faizlər üzrə qısamüddətli kreditorlar,Qısamüddətli kreditor borcları,537,53,0,Payable,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,Payable
+Digər qısamüddətli kreditor borcları,Qısamüddətli kreditor borcları,538,53,0,Payable,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,Payable
+Sair qısamüddətli öhdəliklər,QISAMÜDDƏTLİ ÖHDƏLİKLƏR,54,5,1,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Qısamüddətli pensiya öhdəlikləri,Sair qısamüddətli öhdəliklər,541,54,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Gələcək dövrün gəlirləri (qısamüddətli),Sair qısamüddətli öhdəliklər,542,54,1,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Alınmış avanslar - müştərilərdən (AZN),Gələcək dövrün gəlirləri (qısamüddətli),542.01,542,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Alınmış avanslar - müştərilərdən (xarici),Gələcək dövrün gəlirləri (qısamüddətli),542.02,542,0,,Liability,USD,,,,0,Balance Sheet,0,No,,,0,
+Alınmış qısamüddətli avanslar,Sair qısamüddətli öhdəliklər,543,54,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Qısamüddətli məqsədli maliyyələşmələr,Sair qısamüddətli öhdəliklər,544,54,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Digər qısamüddətli öhdəliklər,Sair qısamüddətli öhdəliklər,545,54,0,,Liability,AZN,,,,0,Balance Sheet,0,No,,,0,
+Əsas əməliyyat gəliri,GƏLİRLƏR,60,6,1,,Income,AZN,,,,0,Profit and Loss,0,No,,,0,
+Satış,Əsas əməliyyat gəliri,601,60,1,,Income,AZN,,,,0,Profit and Loss,0,No,,,0,
+Məhsul satışından gəlir,Satış,601.01,601,1,,Income,AZN,,,,0,Profit and Loss,0,No,,,0,
+Məhsul satışı - yerli,Məhsul satışından gəlir,601.01.01,601.01,0,,Income,AZN,,,,0,Profit and Loss,0,No,,,0,
+Məhsul satışı - ixrac (USD),Məhsul satışından gəlir,601.01.02,601.01,0,,Income,USD,,,,0,Profit and Loss,0,No,,,0,
+Mal satışından gəlir,Satış,601.02,601,1,,Income,AZN,,,,0,Profit and Loss,0,No,,,0,
+Mal satışı - pərakəndə,Mal satışından gəlir,601.02.01,601.02,0,,Income,AZN,,,,0,Profit and Loss,0,No,,,0,
+Mal satışı - topdansatış,Mal satışından gəlir,601.02.02,601.02,0,,Income,AZN,,,,0,Profit and Loss,0,No,,,0,
+Mal satışı - ixrac,Mal satışından gəlir,601.02.03,601.02,0,,Income,USD,,,,0,Profit and Loss,0,No,,,0,
+Xidmət gəliri,Satış,601.03,601,1,,Income,AZN,,,,0,Profit and Loss,0,No,,,0,
+Xidmət gəliri - yerli,Xidmət gəliri,601.03.01,601.03,0,,Income,AZN,,,,0,Profit and Loss,0,No,,,0,
+Xidmət gəliri - xarici (USD),Xidmət gəliri,601.03.02,601.03,0,,Income,USD,,,,0,Profit and Loss,0,No,,,0,
+Tikinti müqavilələri üzrə gəlir,Satış,601.04,601,0,,Income,AZN,,,,0,Profit and Loss,0,No,,,0,
+İcarə gəliri (əsas fəaliyyət),Satış,601.05,601,0,,Income,AZN,,,,0,Profit and Loss,0,No,,,0,
+Satılmış malların qaytarılması,Əsas əməliyyat gəliri,602,60,0,,Income,AZN,,,,0,Profit and Loss,0,No,,,0,
+Verilmiş güzəştlər (satış),Əsas əməliyyat gəliri,603,60,0,,Income,AZN,,,,0,Profit and Loss,0,No,,,0,
+Sair əməliyyat gəlirləri,GƏLİRLƏR,61,6,1,,Income,AZN,,,,0,Profit and Loss,0,No,,,0,
+Sair əməliyyat gəlirləri,Sair əməliyyat gəlirləri,611,61,1,,Income,AZN,,,,0,Profit and Loss,0,No,,,0,
+İcarə gəliri (əsas fəaliyyət deyil),Sair əməliyyat gəlirləri,611.01,611,0,,Income,AZN,,,,0,Profit and Loss,0,No,,,0,
+Komisyon gəliri,Sair əməliyyat gəlirləri,611.02,611,0,,Income,AZN,,,,0,Profit and Loss,0,No,,,0,
+Cərimə və peniyalar (alınan),Sair əməliyyat gəlirləri,611.03,611,0,,Income,AZN,,,,0,Profit and Loss,0,No,,,0,
+Subsidiya və dotasiyalar,Sair əməliyyat gəlirləri,611.04,611,0,,Income,AZN,,,,0,Profit and Loss,0,No,,,0,
+Aktivlərin satışından gəlir,Sair əməliyyat gəlirləri,611.05,611,0,,Income,AZN,,,,0,Profit and Loss,0,No,,,0,
+İnventarizasiya artıqlıqları,Sair əməliyyat gəlirləri,611.06,611,0,,Income,AZN,,,,0,Profit and Loss,0,No,,,0,
+Digər sair əməliyyat gəlirləri,Sair əməliyyat gəlirləri,611.07,611,0,,Income,AZN,,,,0,Profit and Loss,0,No,,,0,
+Fəaliyyətin dayandırılmasından gəlirlər,GƏLİRLƏR,62,6,1,,Income,AZN,,,,0,Profit and Loss,0,No,,,0,
+Dayandırılmış fəaliyyətdən gəlirlər,Fəaliyyətin dayandırılmasından gəlirlər,621,62,0,,Income,AZN,,,,0,Profit and Loss,0,No,,,0,
+Maliyyə gəlirləri,GƏLİRLƏR,63,6,1,,Income,AZN,,,,0,Profit and Loss,0,No,,,0,
+Maliyyə gəlirləri,Maliyyə gəlirləri,631,63,1,,Income,AZN,,,,0,Profit and Loss,0,No,,,0,
+Faiz gəliri - bank depozitləri,Maliyyə gəlirləri,631.01,631,0,,Income,AZN,,,,0,Profit and Loss,0,No,,,0,
+Faiz gəliri - verilmiş borclar,Maliyyə gəlirləri,631.02,631,0,,Income,AZN,,,,0,Profit and Loss,0,No,,,0,
+Dividend gəliri,Maliyyə gəlirləri,631.03,631,0,,Income,AZN,,,,0,Profit and Loss,0,No,,,0,
+Valyuta məzənnə fərqi (mənfəət),Maliyyə gəlirləri,631.04,631,0,,Income,AZN,,,,0,Profit and Loss,0,No,,,0,
+İnvestisiyaların qiymət artımı,Maliyyə gəlirləri,631.05,631,0,,Income,AZN,,,,0,Profit and Loss,0,No,,,0,
+Digər maliyyə gəlirləri,Maliyyə gəlirləri,631.06,631,0,,Income,AZN,,,,0,Profit and Loss,0,No,,,0,
+Fövqəladə gəlirlər,GƏLİRLƏR,64,6,1,,Income,AZN,,,,0,Profit and Loss,0,No,,,0,
+Fövqəladə gəlirlər,Fövqəladə gəlirlər,641,64,1,,Income,AZN,,,,0,Profit and Loss,0,No,,,0,
+Sığorta ödənişləri (alınan),Fövqəladə gəlirlər,641.01,641,0,,Income,AZN,,,,0,Profit and Loss,0,No,,,0,
+Hökumət köməkliyi,Fövqəladə gəlirlər,641.02,641,0,,Income,AZN,,,,0,Profit and Loss,0,No,,,0,
+Digər fövqəladə gəlirlər,Fövqəladə gəlirlər,641.03,641,0,,Income,AZN,,,,0,Profit and Loss,0,No,,,0,
+Satışın maya dəyəri,XƏRCLƏR,70,7,1,Cost of Goods Sold,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,Cost of Goods Sold
+Satışın maya dəyəri üzrə xərclər,Satışın maya dəyəri,701,70,1,Cost of Goods Sold,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,Cost of Goods Sold
+Material xərcləri (SDX),Satışın maya dəyəri üzrə xərclər,701.01,701,0,Cost of Goods Sold,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,Cost of Goods Sold
+Birbaşa əmək haqqı (SDX),Satışın maya dəyəri üzrə xərclər,701.02,701,0,Cost of Goods Sold,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,Cost of Goods Sold
+İstehsalat ümumi xərcləri (SDX),Satışın maya dəyəri üzrə xərclər,701.03,701,0,Cost of Goods Sold,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,Cost of Goods Sold
+Alınan malların dəyəri (SDX),Satışın maya dəyəri üzrə xərclər,701.04,701,0,Cost of Goods Sold,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,Cost of Goods Sold
+Göstərilən xidmətlərin dəyəri,Satışın maya dəyəri üzrə xərclər,701.05,701,0,Cost of Goods Sold,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,Cost of Goods Sold
+Tikinti maya dəyəri,Satışın maya dəyəri üzrə xərclər,701.06,701,0,Cost of Goods Sold,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,Cost of Goods Sold
+Kommersiya xərcləri,XƏRCLƏR,71,7,1,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Kommersiya xərcləri,Kommersiya xərcləri,711,71,1,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Reklam və marketinq xərcləri,Kommersiya xərcləri,711.01,711,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Satış personalının əmək haqqı,Kommersiya xərcləri,711.02,711,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Satış personalının DSMF,Kommersiya xərcləri,711.03,711,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Satış komissiyaları,Kommersiya xərcləri,711.04,711,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Çatdırılma və nəqliyyat xərcləri,Kommersiya xərcləri,711.05,711,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Qablaşdırma xərcləri,Kommersiya xərcləri,711.06,711,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Satış nöqtəsi xərcləri,Kommersiya xərcləri,711.07,711,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Zəmanət xərcləri,Kommersiya xərcləri,711.08,711,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Digər kommersiya xərcləri,Kommersiya xərcləri,711.09,711,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+İnzibati xərclər,XƏRCLƏR,72,7,1,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+İnzibati xərclər,İnzibati xərclər,721,72,1,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+İnzibati işçilərin əmək haqqı,İnzibati xərclər,721.01,721,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+İnzibati işçilərin DSMF (işəgötürən payı),İnzibati xərclər,721.02,721,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+İcarə xərcləri (ofis),İnzibati xərclər,721.03,721,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Kommunal xərclər (elektrik),İnzibati xərclər,721.04,721,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+"Kommunal xərclər (su, qaz, istilik)",İnzibati xərclər,721.05,721,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+"Rabitə xərcləri (telefon, internet)",İnzibati xərclər,721.06,721,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Ofis ləvazimatları və materiallar,İnzibati xərclər,721.07,721,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+TTA amortizasiyası (inzibati),İnzibati xərclər,721.08,721,0,Depreciation,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,Depreciation
+QMA amortizasiyası (inzibati),İnzibati xərclər,721.09,721,0,Depreciation,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,Depreciation
+Sığorta xərcləri,İnzibati xərclər,721.10,721,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Hüquqi xərclər,İnzibati xərclər,721.11,721,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Audit və mühasibat xərcləri,İnzibati xərclər,721.12,721,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Ezamiyyə xərcləri (inzibati),İnzibati xərclər,721.13,721,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Təmir və texniki xidmət (inzibati),İnzibati xərclər,721.14,721,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Nəqliyyat xərcləri (inzibati),İnzibati xərclər,721.15,721,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Təhsil və kadr inkişafı xərcləri,İnzibati xərclər,721.16,721,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Müşahidə şurası xərcləri,İnzibati xərclər,721.17,721,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Bank xidmət haqları,İnzibati xərclər,721.18,721,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Digər inzibati xərclər,İnzibati xərclər,721.19,721,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Sair əməliyyat xərcləri,XƏRCLƏR,73,7,1,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Sair əməliyyat xərcləri,Sair əməliyyat xərcləri,731,73,1,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Şübhəli borclar üzrə xərc,Sair əməliyyat xərcləri,731.01,731,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Ehtiyat yaradılması xərcləri,Sair əməliyyat xərcləri,731.02,731,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Cərimə və sanksiyalar (ödənilən),Sair əməliyyat xərcləri,731.03,731,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Aktivlərin silinməsi zərərləri,Sair əməliyyat xərcləri,731.04,731,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Xeyriyyə xərcləri,Sair əməliyyat xərcləri,731.05,731,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Ekoloji xərclər,Sair əməliyyat xərcləri,731.06,731,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Digər sair əməliyyat xərcləri,Sair əməliyyat xərcləri,731.07,731,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Fəaliyyətin dayandırılmasından zərərlər,XƏRCLƏR,74,7,1,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Dayandırılmış fəaliyyətdən zərərlər,Fəaliyyətin dayandırılmasından zərərlər,741,74,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Maliyyə xərcləri,XƏRCLƏR,75,7,1,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Maliyyə xərcləri,Maliyyə xərcləri,751,75,1,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Faiz xərcləri - bank kreditləri,Maliyyə xərcləri,751.01,751,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Faiz xərcləri - istiqrazlar,Maliyyə xərcləri,751.02,751,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Faiz xərcləri - maliyyə icarəsi,Maliyyə xərcləri,751.03,751,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Faiz xərcləri - digər,Maliyyə xərcləri,751.04,751,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Valyuta məzənnə fərqi (zərər),Maliyyə xərcləri,751.05,751,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+İnvestisiyaların dəyər azalması,Maliyyə xərcləri,751.06,751,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Digər maliyyə xərcləri,Maliyyə xərcləri,751.07,751,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Fövqəladə xərclər,XƏRCLƏR,76,7,1,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Fövqəladə xərclər,Fövqəladə xərclər,761,76,1,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Fəlakət zərərləri,Fövqəladə xərclər,761.01,761,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Digər fövqəladə xərclər,Fövqəladə xərclər,761.02,761,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Mənfəət vergisi xərcləri,MƏNFƏƏT VERGİSİ,90,9,1,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Cari mənfəət vergisi xərcləri,Mənfəət vergisi xərcləri,901,90,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
+Təxirə salınmış mənfəət vergisi xərcləri,Mənfəət vergisi xərcləri,902,90,0,,Expense,AZN,,,,0,Profit and Loss,0,No,,,0,
