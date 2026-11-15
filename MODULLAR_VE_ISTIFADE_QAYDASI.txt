@@ -1,0 +1,207 @@
+================================================================================
+           🇦🇿 ERPNEXT AZƏRBAYCAN LOKALİZASİYASI v15
+      MODULLAR ÜZRƏ ƏTRAFLI İSTİFADƏ VƏ İDARƏETMƏ TƏLİMATI (MANUAL)
+================================================================================
+Müəllif: İlkin Məmmədov (https://github.com/ilkinmamedov1/erpnext-azerbaijan)
+Sistem: ERPNext v15 (Frappe v15)
+Valyuta: AZN (₼) | Hesablar Planı: 427 Hesab (Maliyyə Nazirliyi Standartı)
+================================================================================
+
+MÜNDƏRİCAT:
+1. GİRİŞ VƏ SİSTEMƏ DAXİLOLMA
+2. MODUL 1: MÜHASİBATLIQ VƏ MALİYYƏ (ACCOUNTING)
+3. MODUL 2: SATIŞ VƏ MÜŞTƏRİLƏR (SELLING & CRM)
+4. MODUL 3: SATINALMA VƏ TƏCHİZAT (BUYING)
+5. MODUL 4: ANBAR VƏ MATERİAL EHTİYATLARI (STOCK & INVENTORY)
+6. MODUL 5: KASSA VƏ BANK ƏMƏLİYYATLARI (PAYMENTS)
+7. MODUL 6: İNSAN RESURSLARI VƏ ƏMƏKHAQQI (HR & PAYROLL)
+8. SİSTEMİN İDARƏ EDİLMƏSİ VƏ KÖMƏKÇİ KOMANDALAR
+
+================================================================================
+1. GİRİŞ VƏ SİSTEMƏ DAXİLOLMA
+================================================================================
+Quraşdırma başa çatdıqdan sonra istənilən brauzerdə daxil olun:
+- Veb Ünvan: http://localhost:8080 (və ya serverinizin IP ünvanı/domeni)
+- İstifadəçi adı: Administrator
+- Şifrə: quraşdırma zamanı təyin etdiyiniz şifrə (standart: admin)
+
+Sistem açıldıqda ana səhifədə (Desk) bütün modulların Azərbaycan dilində 
+menyuları qarşınıza çıxacaq.
+
+================================================================================
+2. MODUL 1: MÜHASİBATLIQ VƏ MALİYYƏ (ACCOUNTING)
+================================================================================
+Bu modul şirkətinizin rəsmi mühasibat uçotunu, vergiləri və maliyyə hesabatlarını
+təmin edir.
+
+A) HESABLAR PLANI (CHART OF ACCOUNTS):
+   Menyu: Mühasibatlıq > Hesablar Planı (Chart of Accounts)
+   - Sistemdə Maliyyə Nazirliyinin standartlarına uyğun 427 hesab qurulub.
+   - Bütün hesablar 8 əsas bölmə üzrə iyerarxik ağac formasındadır:
+     1 - UZUNMÜDDƏTLİ AKTİVLƏR (Əsas vəsaitlər, Amortizasiya, QMA)
+     2 - QISAMÜDDƏTLİ AKTİVLƏR (Materiallar, Mallar, Alıcılar, Kassa, Bank)
+     3 - KAPİTAL (Nizamnamə kapitalı, Bölüşdürülməmiş mənfəət, Ehtiyatlar)
+     4 - UZUNMÜDDƏTLİ ÖHDƏLİKLƏR (Uzunmüddətli kreditlər və borclar)
+     5 - QISAMÜDDƏTLİ ÖHDƏLİKLƏR (Təchizatçılara borclar, ƏDV öhdəliyi)
+     6 - GƏLİRLƏR (Əsas satış gəlirləri, Valyuta məzənnə fərqi mənfəəti)
+     7 - XƏRCLƏR (Satışın maya dəyəri - SDX, İnzibati və Kommersiya xərcləri)
+     8 - MALİYYƏ NƏTİCƏLƏRİ (Hesabat dövrünün xalis mənfəəti/zərəri)
+
+   * Yeni Alt-Hesab Əlavə Etmək:
+     Hesablar Planı ağacında müvafiq ana qrupu (məs: 223 - Bank hesabları) 
+     seçin, "Alt Hesab Əlavə Et" düyməsini basın. Hesabın nömrəsini (məs: 223.02) 
+     və adını (məs: Paşa Bank AZN) daxil edib yadda saxlayın.
+
+B) ƏDV VƏ VERGİ MEXANİZMİ (TAXES):
+   Menyu: Mühasibatlıq > Satış Vergiləri Şablonu / Alış Vergiləri Şablonu
+   - ƏDV 18% (Satış): Satış zamanı avtomatik "521.01 - ƏDV öhdəliyi" hesabına 
+     kredit yazılır.
+   - ƏDV 18% (Yerli Alışlar - Əvəzləşdirilən): Alış zamanı avtomatik 
+     "241.01 - ƏDV əvəzləşməsi - yerli alışlar" hesabına debet yazılır.
+   - ƏDV 18% (İdxal): İdxal əməliyyatlarında "241.02" hesabına oturur.
+   - ƏDV 0% (İxrac) və ƏDV-dən Azad şablonları da hazırdır.
+
+C) MEMORİAL ORDER / MÜHASİBAT ƏMƏLİYYATLARI (JOURNAL ENTRY - MƏ-):
+   Menyu: Mühasibatlıq > Jurnal Qeydi (Journal Entry)
+   - Prefiks: MƏ-.YYYY.-.##### (Məsələn: MƏ-2026-00001)
+   - Əllə mühasibat provodkaları vermək üçün istifadə olunur (məsələn: Kassa mədaxil, 
+     Kassa məxaric, Nizamnamə kapitalının formalaşması, Amortizasiya hesablanması).
+   - Qayda: Debet və Kredit cəmi hər zaman bir-birinə bərabər olmalıdır.
+
+D) MƏRKƏZİ BANK (AMB) MƏZƏNNƏLƏRİ:
+   Menyu: Mühasibatlıq > Valyuta Məzənnəsi (Currency Exchange)
+   - USD, EUR, RUB, TRY, GBP valyutaları üzrə məzənnələr qeyd olunur.
+   - Xarici valyutada alış və ya satış fakturası tərtib edildikdə, sistem 
+     tarixə uyğun məzənnə ilə manat ekvivalentini hesablayır və fərqi avtomatik 
+     "631.04" (mənfəət) və ya "731" (zərər) hesabına köçürür.
+
+E) MALİYYƏ HESABATLARI:
+   Menyu: Mühasibatlıq bölməsinin aşağı hissəsi
+   - Balans Hesabatı (Balance Sheet) — Şirkətin aktivləri, öhdəlikləri və kapitalı.
+   - Mənfəət və Zərər Hesabatı (Profit and Loss) — Gəlirlər, SDX və xalis mənfəət.
+   - Baş Kitab (General Ledger) — Bütün hesablar üzrə təfərrüatlı debet/kredit hərəkətləri.
+   - Dövriyyə Cədvəli (Trial Balance) — İlkin qalıq, dövriyyə və son qalıq cədvəli.
+
+================================================================================
+3. MODUL 2: SATIŞ VƏ MÜŞTƏRİLƏR (SELLING & CRM)
+================================================================================
+A) MÜŞTƏRİ BAZASI (CUSTOMERS):
+   Menyu: Satış > Müştəri (Customer)
+   - "Yeni Müştəri" düyməsini basın.
+   - Müştərinin adı: Şirkət və ya Fərdi sahibkarın adı.
+   - VÖEN: Müştərinin 10 rəqəmli vergi ödəyicisinin eyniləşdirmə nömrəsi.
+   - Əlaqə məlumatları, ünvan və bank rekvizitlərini daxil edin.
+
+B) SATIŞ DÖVRİYYƏSİNİN ADDIMLARI:
+   1. Satış Sifarişi (Sales Order - SS-):
+      Müştəri ilə razılaşdırılmış məhsulları, miqdarları və qiymətləri seçin.
+   2. Təhvil Qaiməsi (Delivery Note - TQ-):
+      Məhsullar anbardan çıxarıldıqda tərtib edilir. Anbar qalığı dərhal azalır.
+   3. Satış Qaiməsi / Faktura (Sales Invoice - SQ-):
+      Satışın rəsmi tanınması. 18% ƏDV hesablanır, gəlir "601.02.01" hesabına, 
+      debitor borc isə "211.01.01" (Alıcılar) hesabına yazılır.
+
+C) RƏSMİ "HESAB-FAKTURA (AZƏRBAYCAN)" ÇAP FORMATI:
+   - İstənilən Satış Fakturasını (SQ) açın və yuxarı sağdakı "Çap et" (Print) basın.
+   - Açılan səhifədə format avtomatik "Hesab-Faktura (Azərbaycan)" olaraq gələcək:
+     * Şirkətinizin adı və VÖEN-i
+     * Bank və İBAN rekvizitləriniz (Kapital Bank və s.)
+     * Alıcı təşkilatın adı və VÖEN-i
+     * Malların/Xidmətlərin cədvəli, ölçü vahidi, qiyməti, məbləği
+     * Xalis məbləğ və 18% ƏDV ayrılması
+     * Yekun ödəniləcək məbləğin Azərbaycan dilində sözlə yazılışı
+     * Direktor, Baş Mühasib imzası və M.Y. (Möhür yeri)
+   - Bu sənədi birbaşa A4 vərəqə çap edə və ya PDF kimi müştəriyə göndərə bilərsiniz.
+
+================================================================================
+4. MODUL 3: SATINALMA VƏ TƏCHİZAT (BUYING)
+================================================================================
+A) TƏCHİZATÇI BAZASI (SUPPLIERS):
+   Menyu: Satınalma > Təchizatçı (Supplier)
+   - Yerli və xarici tərəfdaşların VÖEN və əlaqə məlumatları ilə qeydiyyatı.
+
+B) SATINALMA DÖVRİYYƏSİNİN ADDIMLARI:
+   1. Alış Sifarişi (Purchase Order - AS-):
+      Təchizatçıya sifarişin göndərilməsi.
+   2. Mədaxil Qaiməsi (Purchase Receipt - MQ-):
+      Malların anbara daxil olması. Faktiki anbar qalığı artır.
+   3. Alış Fakturası (Purchase Invoice - AQ-):
+      Faktura qeydə alınır. ƏDV avtomatik olaraq "241.01 - ƏDV əvəzləşməsi" 
+      hesabına yönəldilir, kreditor borc isə "531.01.01" hesabında əks olunur.
+
+================================================================================
+5. MODUL 4: ANBAR VƏ MATERİAL EHTİYATLARI (STOCK & INVENTORY)
+================================================================================
+A) ANBAR STRUKTURU:
+   Menyu: Anbar > Anbar (Warehouse)
+   Sistemdə hazır qurulmuş anbarlar:
+   - Əsas Anbar (Mallar) ➔ Hesab: 205.01 (Mallar - anbar)
+   - Hazır Məhsul Anbarı ➔ Hesab: 204.01 (Hazır məhsul)
+   - Xammal və Materiallar Anbarı ➔ Hesab: 201.01.01 (Xammal)
+   - Bitməmiş İstehsalat Anbarı ➔ Hesab: 202.01 (Bitməmiş istehsalat)
+   - Tranzit Anbar (Yolda olan mallar) ➔ Hesab: 207 (Digər ehtiyatlar)
+
+B) NOMENKLATURA / MƏHSULLAR (ITEMS):
+   Menyu: Anbar > Məhsul (Item)
+   - Yeni məhsul əlavə edərkən:
+     * Məhsul Kodu (Item Code) və Adı
+     * Ölçü vahidi: Ədəd, Qutu, Dəst, Paçka, Rulon, Qram, Kq, Ton
+     * Standart anbar: Məs: Əsas Anbar (Mallar)
+     * Barkod və Qiymət təyin edilə bilər.
+
+C) DAXİLİ YERDƏYİŞMƏ VƏ SAYIM DÜZƏLİŞİ:
+   - Anbarlararası Köçürmə (Stock Entry > Material Transfer):
+     Malların bir anbardan digərinə köçürülməsi (Məs: Xammaldan İstehsalata).
+   - Sayım Düzəlişi (Stock Reconciliation):
+     Faktiki sayım nəticəsində kəsir və ya artıq çıxarsa, "208 - Ehtiyatların 
+     dəyər düzəlişi" hesabı ilə uyğunlaşdırılır.
+
+================================================================================
+6. MODUL 5: KASSA VƏ BANK ƏMƏLİYYATLARI (PAYMENTS)
+================================================================================
+Menyu: Mühasibatlıq > Ödəniş Girişi (Payment Entry - ÖD-)
+
+Sistemdə 4 əsas ödəniş növü konfiqurasiya edilib:
+1. Nağd (Kassa) ➔ Hesab: 221.01 - Kassa - AZN
+   - Müştəridən nağd pul qəbulu və ya təchizatçıya nağd ödəniş.
+2. Bank köçürməsi (AZN) ➔ Hesab: 223.01 - Bank hesabı - AZN (Əsas bank)
+   - Şirkətin rəsmi bank hesabı üzrə mədaxil və məxaric köçürmələri.
+3. POS-Terminal / Kart ➔ Hesab: 223.01
+   - Bank kartları ilə ödənişlər.
+4. ƏDV Depozit Hesabı ➔ Hesab: 226 - ƏDV sub-uçot hesabı
+   - Vergi orqanının ƏDV depozit hesabı üzrə ödənişlər və əvəzləşmələr.
+
+================================================================================
+7. MODUL 6: İNSAN RESURSLARI VƏ ƏMƏKHAQQI (HR & PAYROLL)
+================================================================================
+Menyu: İnsan Resursları (HR)
+- Əməkdaşlar (Employee): Şəxsi məlumatlar, vəzifə, departament, qəbul tarixi.
+- Məzuniyyət İdarəetməsi (Leave): Məzuniyyət növləri, ərizələr və qalıq günlər.
+- Əməkhaqqı Hesablanması (Payroll): Ştat üzrə əməkhaqqı cədvəli və ödəniş 
+  tapşırıqlarının avtomatik formalaşdırılması.
+
+================================================================================
+8. SİSTEMİN İDARƏ EDİLMƏSİ VƏ KÖMƏKÇİ KOMANDALAR
+================================================================================
+Qovluqda olan əsas skriptlər:
+
+1. ./install.sh
+   Sistemi 1 komanda ilə interaktiv quraşdırır. Şirkət adı, VÖEN və bank 
+   məlumatlarını təyin etməyə imkan verir.
+
+2. ./test_flow.sh
+   Sistemin bütün modullarını (Alış, Satış, Anbar, Kassa, ƏDV) simulyasiya 
+   edərək Baş Kitabın debet/kredit balansını yoxlayır.
+
+3. ./clean.sh
+   Testdən sonra yaranan saxta sənədləri və fakturaları təmizləyərək bazanı 
+   100% təmiz istehsalat (real) vəziyyətinə qaytarır.
+
+Docker İdarəetmə Əmrləri:
+- Sistemi başlatmaq:  docker compose up -d
+- Sistemi dayandırmaq: docker compose down
+- Loqları izləmək:    docker compose logs -f backend
+
+================================================================================
+🇦🇿 ERPNext Azərbaycan — Biznesinizi Milli Standartlarla Avtomatlaşdırın!
+================================================================================
